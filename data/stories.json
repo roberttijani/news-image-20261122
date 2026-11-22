@@ -1,57 +1,208 @@
 {
   "date": "2026-11-22",
-  "displayDate": "22 NOVEMBER 2026",
-  "fullDateString": "SUNDAY, 22 NOVEMBER 2026",
-  "stories": [
+  "displayDate": "SUNDAY · 22 NOVEMBER 2026",
+  "subtitle": "17 VERIFIED STORIES · 7 REGIONS · STRICT 22 NOV 2026 UTC EDITION",
+  "keyNumbers": [
+    { "value": "196", "label": "Nations at COP31 final-text deadline" },
+    { "value": "24+", "label": "Killed as Nigeria funeral boat capsizes" },
+    { "value": "$31M", "label": "Libya oil pipeline blockade losses" },
+    { "value": "4", "label": "Chemical groups banned in Japan today" },
+    { "value": "128", "label": "Rishabh Pant century vs NZ in Wellington" },
+    { "value": "89", "label": "Luxury icon Paolo Bulgari dies" }
+  ],
+  "regionDistribution": [
+    { "region": "Middle East", "code": "ME", "count": 4, "color": "#B91C1C" },
+    { "region": "Asia", "code": "ASIA", "count": 3, "color": "#0F766E" },
+    { "region": "Americas", "code": "AMER", "count": 3, "color": "#9A3412" },
+    { "region": "Europe", "code": "EUR", "count": 2, "color": "#1D4ED8" },
+    { "region": "Africa", "code": "AFR", "count": 2, "color": "#A16207" },
+    { "region": "Oceania", "code": "OCE", "count": 2, "color": "#6D28D9" },
+    { "region": "Global", "code": "GLO", "count": 1, "color": "#1E3A5F" }
+  ],
+  "topHeroes": [
     {
-      "id": "climate-cop31",
-      "position": "hero",
-      "label": "CLIMATE • TURKEY",
-      "status": "CONFIRMED",
-      "headline": "COP31 NEARS FINAL DEAL",
-      "subtitle": "Antalya overtime talks announce new package",
-      "sources": "Reuters / Arab News",
-      "illustration": "summit-pavilion"
+      "id": 1,
+      "region": "GLOBAL",
+      "regionColor": "#1E3A5F",
+      "status": "OFFICIAL",
+      "headline": "COP31 FINAL TEXT ISSUED",
+      "summary": "Antalya presidency sets 06:00 GMT plenary deadline on fossil fuels & climate finance package.",
+      "sources": "Reuters / Japan Times",
+      "location": "Antalya, Turkey",
+      "lat": 36.9,
+      "lon": 30.7
     },
     {
-      "id": "mideast-missile",
-      "position": "top-right",
-      "label": "MIDDLE EAST",
+      "id": 2,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
       "status": "OFFICIAL",
       "headline": "SAUDI INTERCEPTS MISSILE",
-      "subtitle": "Houthi launch blocked; Iran plans power rationing",
-      "sources": "Anadolu Agency / RFE/RL",
-      "illustration": "radar-interception"
+      "summary": "Coalition downs Houthi ballistic missile aimed at western Saudi Arabia; Mecca alert issued.",
+      "sources": "Anadolu Agency",
+      "location": "Western Saudi Arabia",
+      "lat": 21.4,
+      "lon": 39.8
     },
     {
-      "id": "tech-curb",
-      "position": "bottom-left",
-      "label": "TECH • US-CHINA",
+      "id": 3,
+      "region": "AMERICAS",
+      "regionColor": "#9A3412",
       "status": "REPORTED",
-      "headline": "US DATA CENTER CURB",
-      "subtitle": "Import ban advances despite Big Tech pushback",
+      "headline": "US DATA-CENTER CURB",
+      "summary": "Trump administration pushes optical-transceiver import ban despite Amazon, Google & Meta pushback.",
       "sources": "Reuters / TBS",
-      "illustration": "server-stack"
-    },
+      "location": "Washington DC, USA",
+      "lat": 38.9,
+      "lon": -77.0
+    }
+  ],
+  "gridStories": [
     {
-      "id": "europe-nato",
-      "position": "bottom-center",
-      "label": "EUROPE • NATO",
+      "id": 4,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
       "status": "OFFICIAL",
       "headline": "POLAND AIRSPACE ALERT",
-      "subtitle": "NATO set to meet after missile incursion",
-      "sources": "Kyiv Independent / Reuters",
-      "illustration": "radar-scope"
+      "summary": "Swedish Gripen failed to down suspected Russian missile in bad weather; NATO meets Nov 23.",
+      "sources": "Kyiv Independent",
+      "location": "Warsaw, Poland",
+      "lat": 52.2,
+      "lon": 21.0
     },
     {
-      "id": "africa-boat",
-      "position": "bottom-right",
-      "label": "AFRICA • NIGERIA",
+      "id": 5,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
+      "status": "OFFICIAL",
+      "headline": "BAHRAIN DEMANDS UN ACTION",
+      "summary": "Manama seeks UNSC accountability & compensation after Iran strikes civilian industrial site.",
+      "sources": "Anadolu Agency",
+      "location": "Manama, Bahrain",
+      "lat": 26.2,
+      "lon": 50.6
+    },
+    {
+      "id": 6,
+      "region": "AFRICA",
+      "regionColor": "#A16207",
       "status": "REPORTED",
-      "headline": "BOAT CAPSIZES: 24 DEAD",
-      "subtitle": "Mourners killed as funeral boat capsizes",
+      "headline": "NIGERIA BOAT CAPSIZES: 24+",
+      "summary": "At least 24 killed after boat carrying mourners to a funeral overturns in northern Nigeria.",
       "sources": "Times of India",
-      "illustration": "ocean-wave"
+      "location": "Nigeria",
+      "lat": 9.1,
+      "lon": 7.4
+    },
+    {
+      "id": 7,
+      "region": "ASIA",
+      "regionColor": "#0F766E",
+      "status": "OFFICIAL",
+      "headline": "JAPAN BANS 4 CHEMICALS",
+      "summary": "METI CSCL import ban on LC-PFCAs, chlorpyrifos & MCCPs takes effect today across industries.",
+      "sources": "ChemRadar / METI",
+      "location": "Tokyo, Japan",
+      "lat": 35.7,
+      "lon": 139.7
+    },
+    {
+      "id": 8,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
+      "status": "CONFIRMED",
+      "headline": "PAOLO BULGARI DIES AT 89",
+      "summary": "Former chairman who turned family jeweler into a global luxury brand passes away in Rome.",
+      "sources": "AP",
+      "location": "Rome, Italy",
+      "lat": 41.9,
+      "lon": 12.5
+    },
+    {
+      "id": 9,
+      "region": "OCEANIA",
+      "regionColor": "#6D28D9",
+      "status": "OFFICIAL",
+      "headline": "AUS & NZ RUSH BOUGAINVILLE AID",
+      "summary": "Emergency support mobilized for Papua New Guinea region as severe El Niño threat looms.",
+      "sources": "Post-Courier",
+      "location": "Bougainville, PNG",
+      "lat": -6.2,
+      "lon": 155.4
+    }
+  ],
+  "bottomStories": [
+    {
+      "id": 10,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
+      "status": "REPORTED",
+      "lead": "Iran plans electricity rationing",
+      "body": "and caps subsidized bread amid war strain and shrinking oil revenue.",
+      "source": "RFE/RL"
+    },
+    {
+      "id": 11,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
+      "status": "OFFICIAL",
+      "lead": "Qatar defense chief & CENTCOM",
+      "body": "hold talks in Doha; Israel's Eisenkot invites Likud to coalition talks.",
+      "source": "Anadolu Agency"
+    },
+    {
+      "id": 12,
+      "region": "AFRICA",
+      "regionColor": "#A16207",
+      "status": "OFFICIAL",
+      "lead": "Libya oil pipeline blockade",
+      "body": "has cost National Oil Corp. nearly $31M so far amid dispute.",
+      "source": "Anadolu Agency"
+    },
+    {
+      "id": 13,
+      "region": "ASIA",
+      "regionColor": "#0F766E",
+      "status": "REPORTED",
+      "lead": "India & Bangladesh meet today",
+      "body": "for diplomatic talks on the critical Ganges water-sharing treaty renewal.",
+      "source": "Times of India"
+    },
+    {
+      "id": 14,
+      "region": "ASIA/OCEANIA",
+      "regionColor": "#0F766E",
+      "status": "CONFIRMED",
+      "lead": "Cricket: Rishabh Pant hits 128",
+      "body": "as India reach 629/6 on Day 4 of 1st Test vs New Zealand in Wellington.",
+      "source": "The Hindu"
+    },
+    {
+      "id": 15,
+      "region": "OCEANIA",
+      "regionColor": "#6D28D9",
+      "status": "OFFICIAL",
+      "lead": "Australia, NZ & US navies",
+      "body": "expand mine-warfare capabilities in Indo-Pacific Exercise Dugong.",
+      "source": "Eurasia Review"
+    },
+    {
+      "id": 16,
+      "region": "AMERICAS",
+      "regionColor": "#9A3412",
+      "status": "REPORTED",
+      "lead": "Ohio shooting kills at least 3",
+      "body": "in the United States as federal and state authorities investigate motive.",
+      "source": "Anadolu Agency"
+    },
+    {
+      "id": 17,
+      "region": "AMERICAS",
+      "regionColor": "#9A3412",
+      "status": "CONFIRMED",
+      "lead": "Motorsport: Alisha Palmowski",
+      "body": "wins F1 Academy Las Vegas feature race in dominant fashion.",
+      "source": "Motorsport Week"
     }
   ]
 }
