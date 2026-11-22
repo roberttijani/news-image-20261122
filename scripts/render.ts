@@ -75,6 +75,11 @@ const C = {
   crimson: '#B91C1C',
   crimsonBright: '#DC2626',
   crimsonLight: '#FECACA',
+  // Steel editorial illustration palette
+  steelDark: '#2C4A5A',
+  steelMid: '#648595',
+  steelLight: '#9BB3BF',
+  steelPale: '#D2DFE6',
   // Regional Accents (Exact from specification)
   regGlobal: '#1E3A5F',
   regMidEast: '#B91C1C',
@@ -96,12 +101,12 @@ function renderStatusBadge(status: 'CONFIRMED' | 'OFFICIAL' | 'REPORTED', fontSi
     REPORTED: { bg: '#334155', text: '#FFFFFF', label: 'REPORTED' },
   }[status];
 
-  const w = status === 'CONFIRMED' ? 58 : status === 'REPORTED' ? 52 : 44;
-  const h = fontSize + 6.5;
+  const w = status === 'CONFIRMED' ? fontSize * 7.5 : status === 'REPORTED' ? fontSize * 6.8 : fontSize * 5.8;
+  const h = fontSize + 6;
 
   return `
-    <rect width="${w}" height="${h}" rx="2.5" fill="${cfg.bg}"/>
-    <text x="${w / 2}" y="${h - 4}" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="${fontSize}" font-weight="800" fill="${cfg.text}" letter-spacing="0.7">${cfg.label}</text>
+    <rect width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="2.5" fill="${cfg.bg}"/>
+    <text x="${(w / 2).toFixed(1)}" y="${(h - 3.8).toFixed(1)}" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="${fontSize}" font-weight="800" fill="${cfg.text}" letter-spacing="0.6">${cfg.label}</text>
   `;
 }
 
@@ -171,7 +176,7 @@ function generateWorldMapPath(
 // 9 BESPOKE EDITORIAL VECTOR ILLUSTRATIONS (ZERO FLOATING TEXT)
 // ============================================================================
 
-// 1. COP31 Antalya Summit: Cantilever Pavilion & Coastal Wind Turbines
+// 1. COP31 Antalya Summit Collapses: Pavilion, Climate Globe & Fractured Gavel
 function renderIllustration1(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
@@ -182,46 +187,54 @@ function renderIllustration1(w: number, h: number): string {
     <rect x="0" y="${h - 18}" width="${w}" height="18" fill="#D2DFE6"/>
     <line x1="8" y1="${h - 10}" x2="${w - 8}" y2="${h - 10}" stroke="#9BB3BF" stroke-width="1" stroke-dasharray="8,5"/>
     
-    <!-- Stylized COP31 Climate Globe (Latitude/Longitude Lines) -->
-    <g transform="translate(242, 38)">
-      <circle cx="0" cy="0" r="25" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.6"/>
-      <line x1="-25" y1="0" x2="25" y2="0" stroke="${C.steelMid}" stroke-width="1.2"/>
-      <line x1="0" y1="-25" x2="0" y2="25" stroke="${C.steelMid}" stroke-width="1.2"/>
-      <ellipse cx="0" cy="-11" rx="21" ry="6" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
-      <ellipse cx="0" cy="11" rx="21" ry="6" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
-      <ellipse cx="0" cy="0" rx="13" ry="25" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
-      <!-- Antalya Summit Crimson Beacon -->
-      <circle cx="6" cy="-8" r="3" fill="${C.crimson}"/>
-      <circle cx="6" cy="-8" r="5" fill="none" stroke="${C.crimson}" stroke-width="0.8" opacity="0.6"/>
-    </g>
-
-    <!-- Offshore Wind Turbine -->
-    <g transform="translate(286, 38)">
-      <line x1="0" y1="26" x2="0" y2="0" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.5" fill="${C.steelDark}"/>
-      <line x1="0" y1="0" x2="-7" y2="-6" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="0" y1="0" x2="8" y2="-3" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="0" y1="0" x2="-1" y2="8" stroke="${C.steelMid}" stroke-width="1"/>
-    </g>
-
-    <!-- Modern Cantilever Pavilion Architecture -->
-    <polygon points="14,${h - 18} 175,${h - 18} 195,${h - 6} 6,${h - 6}" fill="${C.steelDark}"/>
-    <polygon points="22,${h - 62} 155,${h - 76} 170,${h - 50} 42,${h - 38}" fill="${C.steelDark}"/>
-    <polygon points="32,${h - 64} 162,${h - 78} 168,${h - 68} 40,${h - 56}" fill="${C.steelMid}"/>
+    <!-- Modern Cantilever Summit Hall -->
+    <polygon points="14,${h - 18} 150,${h - 18} 165,${h - 6} 6,${h - 6}" fill="${C.steelDark}"/>
+    <polygon points="20,${h - 58} 135,${h - 70} 148,${h - 46} 36,${h - 36}" fill="${C.steelDark}"/>
+    <polygon points="28,${h - 60} 140,${h - 72} 145,${h - 63} 34,${h - 52}" fill="${C.steelMid}"/>
     <!-- Glass Facade & Columns -->
-    <polygon points="42,${h - 38} 170,${h - 50} 165,${h - 18} 38,${h - 18}" fill="#C8D8E2" opacity="0.85"/>
-    <line x1="68" y1="${h - 41}" x2="64" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
-    <line x1="100" y1="${h - 44}" x2="96" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
-    <line x1="132" y1="${h - 47}" x2="128" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <polygon points="36,${h - 36} 148,${h - 46} 144,${h - 18} 32,${h - 18}" fill="#C8D8E2" opacity="0.85"/>
+    <line x1="58" y1="${h - 38}" x2="54" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <line x1="86" y1="${h - 41}" x2="82" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <line x1="114" y1="${h - 44}" x2="110" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
     <!-- Flags atop roof -->
-    <line x1="28" y1="${h - 62}" x2="28" y2="${h - 84}" stroke="${C.inkNavy}" stroke-width="1.5"/>
-    <polygon points="28,${h - 84} 42,${h - 79} 28,${h - 74}" fill="${C.crimson}"/>
-    <line x1="78" y1="${h - 68}" x2="78" y2="${h - 88}" stroke="${C.inkNavy}" stroke-width="1.5"/>
-    <polygon points="78,${h - 88} 92,${h - 83} 78,${h - 78}" fill="${C.steelMid}"/>
+    <line x1="26" y1="${h - 58}" x2="26" y2="${h - 78}" stroke="${C.inkNavy}" stroke-width="1.5"/>
+    <polygon points="26,${h - 78} 38,${h - 74} 26,${h - 70}" fill="${C.crimson}"/>
+    <line x1="68" y1="${h - 64}" x2="68" y2="${h - 82}" stroke="${C.inkNavy}" stroke-width="1.5"/>
+    <polygon points="68,${h - 82} 80,${h - 78} 68,${h - 74}" fill="${C.steelMid}"/>
+
+    <!-- Stylized COP31 Climate Globe (Center-Right) -->
+    <g transform="translate(196, 38)">
+      <circle cx="0" cy="0" r="22" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.5"/>
+      <line x1="-22" y1="0" x2="22" y2="0" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="0" y1="-22" x2="0" y2="22" stroke="${C.steelMid}" stroke-width="1"/>
+      <ellipse cx="0" cy="-10" rx="19" ry="5.5" fill="none" stroke="${C.steelMid}" stroke-width="0.9"/>
+      <ellipse cx="0" cy="10" rx="19" ry="5.5" fill="none" stroke="${C.steelMid}" stroke-width="0.9"/>
+      <ellipse cx="0" cy="0" rx="11" ry="22" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
+      <!-- Antalya Crimson Alert Beacon -->
+      <circle cx="5" cy="-7" r="3" fill="${C.crimson}"/>
+      <circle cx="5" cy="-7" r="5.5" fill="none" stroke="${C.crimson}" stroke-width="0.8" opacity="0.6"/>
+    </g>
+
+    <!-- Talks Collapse Motif: Fractured Conference Gavel & Sound Block (Far Right) -->
+    <g transform="translate(262, 42)">
+      <!-- Sound Block Base -->
+      <rect x="-14" y="14" width="28" height="6" rx="1.5" fill="${C.steelDark}"/>
+      <ellipse cx="0" cy="14" rx="14" ry="3" fill="${C.steelMid}"/>
+      <!-- Fractured Gavel Head -->
+      <g transform="rotate(-24)">
+        <polygon points="-12,-6 12,-6 10,6 -10,6" fill="${C.crimson}"/>
+        <rect x="-3" y="6" width="6" height="4" rx="1" fill="${C.steelDark}"/>
+        <!-- Split Handle with Angular Fracture -->
+        <path d="M 0,-6 L -3,-18" stroke="${C.steelDark}" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M -1,-22 L 5,-32" stroke="${C.steelDark}" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Crimson Fracture Spark -->
+        <polygon points="-2,-20 2,-18 -1,-16 -4,-18" fill="${C.crimsonBright}"/>
+      </g>
+    </g>
   `;
 }
 
-// 2. Saudi Air Defense: Geodesic Dome, Interception Arc & Kinetic Deflection
+// 2. Gulf Air Defense & Iran Escalation: Radar Battery, Trajectory & Deflection
 function renderIllustration2(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
@@ -243,11 +256,11 @@ function renderIllustration2(w: number, h: number): string {
     <path d="M 42,${h - 42} A 55 55 0 0 1 97,${h - 70}" fill="none" stroke="#9BB3BF" stroke-width="1.2" stroke-dasharray="3,3"/>
     <path d="M 42,${h - 42} A 95 95 0 0 1 137,${h - 90}" fill="none" stroke="#9BB3BF" stroke-width="1.2" stroke-dasharray="4,4"/>
     <!-- Inbound Hostile Missile Trajectory -->
-    <path d="M ${w - 18},16 Q ${w - 55},42 ${w - 95},60" fill="none" stroke="${C.inkNavy}" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <path d="M ${w - 18},16 Q ${w - 55},42 ${w - 95},56" fill="none" stroke="${C.inkNavy}" stroke-width="1.5" stroke-dasharray="4,2"/>
     <!-- Crimson Interceptor Arc -->
-    <path d="M 48,${h - 46} Q 105,24 ${w - 95},60" fill="none" stroke="${C.crimson}" stroke-width="2.6"/>
+    <path d="M 48,${h - 46} Q 105,24 ${w - 95},56" fill="none" stroke="${C.crimson}" stroke-width="2.6"/>
     <!-- Kinetic Starburst Impact Point -->
-    <g transform="translate(${w - 95}, 60)">
+    <g transform="translate(${w - 95}, 56)">
       <circle cx="0" cy="0" r="15" fill="${C.crimsonLight}" opacity="0.6"/>
       <circle cx="0" cy="0" r="8" fill="${C.crimson}" opacity="0.4"/>
       <circle cx="0" cy="0" r="3" fill="${C.crimson}"/>
@@ -255,135 +268,315 @@ function renderIllustration2(w: number, h: number): string {
       <line x1="0" y1="-12" x2="0" y2="12" stroke="${C.crimson}" stroke-width="2"/>
     </g>
     <!-- Deflected Missile Silhouette -->
-    <g transform="translate(${w - 74}, 44) rotate(-42)">
+    <g transform="translate(${w - 74}, 40) rotate(-42)">
       <polygon points="0,-14 4,2 2,12 -2,12 -4,2" fill="${C.inkNavy}"/>
       <polygon points="2,5 7,12 2,10" fill="${C.steelDark}"/>
       <polygon points="-2,5 -7,12 -2,10" fill="${C.steelDark}"/>
     </g>
+    <!-- Naval Air-Defense Silhouette (Far Left) -->
+    <g transform="translate(138, ${h - 22})">
+      <line x1="0" y1="0" x2="0" y2="-18" stroke="${C.steelDark}" stroke-width="1.2"/>
+      <line x1="-6" y1="-12" x2="6" y2="-12" stroke="${C.steelDark}" stroke-width="1"/>
+      <circle cx="0" cy="-18" r="2" fill="${C.steelMid}"/>
+    </g>
   `;
 }
 
-// 3. US-China Data Center Curb: Server Blades, Optical Transceivers & Circuit Bus
+// 3. Kyiv Strike & Baltic Cargo Ship Fire: Urban Grid, Vessel & Flames
 function renderIllustration3(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Server Rack Tower Chassis -->
-    <g transform="translate(14, 10)">
-      <rect x="0" y="0" width="76" height="${h - 20}" rx="3" fill="${C.inkNavy}"/>
-      <rect x="3" y="3" width="70" height="${h - 26}" rx="1.5" fill="${C.steelDark}"/>
-      ${[0, 1, 2, 3].map(i => {
-        const sy = 6 + i * 15;
-        return `
-          <rect x="6" y="${sy}" width="64" height="12" rx="1" fill="${C.inkNavy}" stroke="${C.steelMid}" stroke-width="0.8"/>
-          <line x1="10" y1="${sy + 4}" x2="32" y2="${sy + 4}" stroke="${C.steelMid}" stroke-width="1"/>
-          <line x1="10" y1="${sy + 8}" x2="32" y2="${sy + 8}" stroke="${C.steelMid}" stroke-width="1"/>
-          <circle cx="44" cy="${sy + 6}" r="1.6" fill="${i === 1 ? C.crimson : '#10B981'}"/>
-          <circle cx="50" cy="${sy + 6}" r="1.6" fill="${C.steelLight}"/>
-          <rect x="56" y="${sy + 3}" width="10" height="6" rx="0.8" fill="${C.steelMid}"/>
-        `;
-      }).join('')}
+    
+    <!-- LEFT: Kyiv Urban Residential Block with Strike Blast -->
+    <g transform="translate(14, 12)">
+      <!-- Apartment Building Facade -->
+      <rect x="0" y="4" width="56" height="58" rx="2" fill="${C.steelDark}" stroke="${C.inkNavy}" stroke-width="1.2"/>
+      <!-- Window Matrix Grid -->
+      ${[0, 1, 2, 3].map(row => 
+        [0, 1, 2].map(col => `
+          <rect x="${6 + col * 16}" y="${10 + row * 12}" width="10" height="7" rx="1" fill="#E2EBF0" opacity="${row === 1 && col === 2 ? '0.3' : '0.85'}"/>
+        `).join('')
+      ).join('')}
+      <!-- Blast Impact / Breach on Top-Right Corner -->
+      <polygon points="42,4 56,4 56,22 46,18 42,12" fill="${C.cardMuted}"/>
+      <!-- Impact Alert Rings -->
+      <circle cx="50" cy="14" r="8" fill="none" stroke="${C.crimson}" stroke-width="1.4" stroke-dasharray="2,2"/>
+      <circle cx="50" cy="14" r="3.5" fill="${C.crimson}"/>
+      <!-- Telecom Mast on Roof -->
+      <line x1="16" y1="4" x2="16" y2="-6" stroke="${C.inkNavy}" stroke-width="1.5"/>
+      <line x1="11" y1="-2" x2="21" y2="-2" stroke="${C.steelMid}" stroke-width="1"/>
     </g>
-    <!-- Optical Transceiver Semiconductor Hub -->
-    <g transform="translate(102, 14)">
-      <!-- Circuit Bus Lines -->
-      <path d="M 0,16 H 32 V 32 H 75" fill="none" stroke="${C.steelMid}" stroke-width="1.8"/>
-      <path d="M 0,38 H 45 V 50 H 98" fill="none" stroke="${C.steelDark}" stroke-width="1.8"/>
-      <!-- Blocked Import Trace (Crimson Dashed) -->
-      <path d="M 0,56 H 25 V 68 H 68 V 56 H 92" fill="none" stroke="${C.crimson}" stroke-width="2" stroke-dasharray="4,2"/>
-      <!-- Nodes -->
-      <circle cx="32" cy="32" r="3" fill="${C.steelDark}"/>
-      <circle cx="75" cy="32" r="3.5" fill="${C.steelMid}"/>
-      <circle cx="45" cy="50" r="3" fill="${C.steelDark}"/>
-      <circle cx="98" cy="50" r="4" fill="${C.steelDark}"/>
-      <circle cx="68" cy="56" r="3.5" fill="${C.crimson}"/>
-      <!-- Optical Chip Package -->
-      <g transform="translate(62, 8)">
-        <rect x="0" y="0" width="26" height="26" rx="2" fill="${C.steelDark}" stroke="${C.inkNavy}" stroke-width="1.2"/>
-        <rect x="5" y="5" width="16" height="16" fill="${C.cardBg}"/>
-        <circle cx="13" cy="13" r="3.5" fill="${C.crimson}"/>
+
+    <!-- Subtle Dividing Demarcation -->
+    <line x1="88" y1="10" x2="88" y2="${h - 10}" stroke="${C.divider}" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+    <!-- RIGHT: Baltic Sea Waters & Burning Cargo Ship -->
+    <g transform="translate(98, 0)">
+      <!-- Cold Baltic Sea Waves -->
+      <path d="M 0,${h - 16} Q 40,${h - 24} 80,${h - 17} T 190,${h - 18} L 190,${h} L 0,${h} Z" fill="${C.steelDark}"/>
+      <path d="M 0,${h - 16} Q 40,${h - 24} 80,${h - 17} T 190,${h - 18}" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.6"/>
+
+      <!-- Commercial Cargo Freighter Hull -->
+      <g transform="translate(16, ${h - 22})">
+        <!-- Hull Profile -->
+        <polygon points="0,-4 135,-4 148,-14 154,-14 150,2 10,2" fill="${C.inkNavy}"/>
+        <rect x="12" y="-12" width="22" height="8" fill="${C.steelMid}"/>
+        <rect x="18" y="-18" width="10" height="6" fill="${C.steelDark}"/>
+        <line x1="23" y1="-18" x2="23" y2="-24" stroke="${C.steelDark}" stroke-width="1.2"/>
+        
+        <!-- Deck Shipping Containers (Steel Blue & Charcoal) -->
+        <rect x="42" y="-12" width="16" height="8" rx="0.8" fill="${C.steelMid}" stroke="${C.steelDark}" stroke-width="0.6"/>
+        <rect x="60" y="-12" width="16" height="8" rx="0.8" fill="${C.steelLight}" stroke="${C.steelDark}" stroke-width="0.6"/>
+        <rect x="78" y="-12" width="16" height="8" rx="0.8" fill="${C.charcoal}" stroke="${C.inkNavy}" stroke-width="0.6"/>
+        
+        <!-- Burning Container Stacks (Deck Center) -->
+        <rect x="96" y="-14" width="16" height="10" rx="0.8" fill="${C.charcoal}"/>
+        <rect x="114" y="-12" width="16" height="8" rx="0.8" fill="${C.steelDark}"/>
+        
+        <!-- Stylized Crimson/Orange Fire Tongues -->
+        <path d="M 100,-14 Q 104,-28 108,-18 Q 112,-32 116,-16 Q 120,-26 124,-14 Z" fill="${C.crimson}"/>
+        <path d="M 104,-14 Q 107,-24 110,-17 Q 113,-26 117,-14 Z" fill="#F59E0B" opacity="0.9"/>
+        
+        <!-- Rising Billowing Smoke Plumes -->
+        <circle cx="106" cy="-28" r="7" fill="#64748B" opacity="0.6"/>
+        <circle cx="118" cy="-34" r="9" fill="#94A3B8" opacity="0.5"/>
+        <circle cx="130" cy="-42" r="11" fill="#CBD5E1" opacity="0.4"/>
+      </g>
+
+      <!-- Finnish Rescue Cutter Light Beacon -->
+      <g transform="translate(182, 18)">
+        <polygon points="0,0 -35,28 -15,35" fill="#FFF8DC" opacity="0.4"/>
+        <circle cx="0" cy="0" r="2.5" fill="${C.crimson}"/>
       </g>
     </g>
   `;
 }
 
-// 4. Poland Airspace Alert: Tactical Radar PPI Scope
+// 4. Marc Márquez Clinches 8th MotoGP World Title: Portimão Kerb & Racing Superbike
 function renderIllustration4(w: number, h: number): string {
-  const cx = w / 2;
-  const cy = h / 2;
-  const r = Math.min(w, h) * 0.42;
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <circle cx="${cx}" cy="${cy}" r="${r}" fill="#E4DFD2" stroke="${C.inkNavy}" stroke-width="2"/>
-    <circle cx="${cx}" cy="${cy}" r="${r * 0.68}" fill="none" stroke="#9BB3BF" stroke-width="1" stroke-dasharray="2,2"/>
-    <circle cx="${cx}" cy="${cy}" r="${r * 0.35}" fill="none" stroke="#9BB3BF" stroke-width="0.8"/>
-    <line x1="${cx - r}" y1="${cy}" x2="${cx + r}" y2="${cy}" stroke="${C.steelMid}" stroke-width="1"/>
-    <line x1="${cx}" y1="${cy - r}" x2="${cx}" y2="${cy + r}" stroke="${C.steelMid}" stroke-width="1"/>
-    <!-- Sweep Wedge -->
-    <path d="M ${cx},${cy} L ${cx + r * 0.9},${cy - r * 0.4} A ${r} ${r} 0 0 0 ${cx + r * 0.55},${cy - r * 0.8} Z" fill="${C.steelMid}" opacity="0.35"/>
-    <!-- Frontier Demarcation -->
-    <path d="M ${cx - 24},${cy - r * 0.8} Q ${cx - 6},${cy} ${cx - 20},${cy + r * 0.8}" fill="none" stroke="${C.steelDark}" stroke-width="1.5" stroke-dasharray="4,2"/>
-    <!-- Friendly Flight Track -->
-    <circle cx="${cx - 16}" cy="${cy + 14}" r="2.5" fill="${C.steelDark}"/>
-    <line x1="${cx - 16}" y1="${cy + 14}" x2="${cx - 8}" y2="${cy + 6}" stroke="${C.steelDark}" stroke-width="1.2"/>
-    <!-- Incursion Alert Beacon -->
-    <circle cx="${cx + 18}" cy="${cy - 16}" r="6" fill="none" stroke="${C.crimson}" stroke-width="1.2" stroke-dasharray="2,1.5"/>
-    <circle cx="${cx + 18}" cy="${cy - 16}" r="3" fill="${C.crimson}"/>
-    <line x1="${cx + 18}" y1="${cy - 16}" x2="${cx + 4}" y2="${cy - 6}" stroke="${C.crimson}" stroke-width="1.6"/>
-    <polygon points="${cx + 4},${cy - 6} ${cx + 9},${cy - 6} ${cx + 6},${cy - 10}" fill="${C.crimson}"/>
+    
+    <!-- Autódromo do Algarve Curving Asphalt Track -->
+    <path d="M 0,${h - 8} Q 35,${h - 32} 55,20 L 75,12 Q 52,${h - 24} 12,${h} Z" fill="#334155"/>
+    
+    <!-- Red & White Alternating Racing Kerb (Rumble Strips) -->
+    <g transform="translate(0, 0)">
+      <polygon points="0,${h - 14} 8,${h - 20} 14,${h - 18} 4,${h - 10}" fill="${C.crimson}"/>
+      <polygon points="8,${h - 20} 16,${h - 28} 22,${h - 25} 14,${h - 18}" fill="#FFFFFF"/>
+      <polygon points="16,${h - 28} 25,${h - 38} 31,${h - 34} 22,${h - 25}" fill="${C.crimson}"/>
+      <polygon points="25,${h - 38} 34,${h - 50} 40,${h - 46} 31,${h - 34}" fill="#FFFFFF"/>
+      <polygon points="34,${h - 50} 43,${h - 64} 49,${h - 60} 40,${h - 46}" fill="${C.crimson}"/>
+      <polygon points="43,${h - 64} 52,${h - 80} 58,${h - 76} 49,${h - 60}" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Leaning MotoGP Racing Prototype Superbike & Rider (Deep Apex Tuck) -->
+    <g transform="translate(26, ${h - 44}) rotate(-28)">
+      <!-- Rear Slick Tyre -->
+      <ellipse cx="-16" cy="2" rx="7" ry="4.5" fill="${C.inkNavy}"/>
+      <ellipse cx="-16" cy="2" rx="4" ry="2.5" fill="${C.steelDark}"/>
+      <!-- Front Slick Tyre -->
+      <ellipse cx="18" cy="-4" rx="7" ry="4.5" fill="${C.inkNavy}"/>
+      <ellipse cx="18" cy="-4" rx="4" ry="2.5" fill="${C.steelDark}"/>
+      <!-- Motorcycle Chassis & Aerodynamic Fairing -->
+      <polygon points="-12,0 4,-2 14,-6 8,-12 -4,-10" fill="${C.crimson}"/>
+      <polygon points="-4,-10 6,-11 12,-6 -2,-4" fill="${C.steelDark}"/>
+      <!-- Aerodynamic Downforce Winglets -->
+      <polygon points="10,-8 16,-9 14,-6" fill="${C.inkNavy}"/>
+      <!-- Low Slung Exhaust -->
+      <line x1="-12" y1="2" x2="-2" y2="1" stroke="${C.steelMid}" stroke-width="1.8"/>
+      <!-- Rider in Deep Lean / Knee-Down Puck -->
+      <circle cx="-1" cy="-14" r="5" fill="${C.inkNavy}"/>
+      <polygon points="-6,-10 2,-11 5,-7 -2,-5" fill="${C.crimson}"/>
+      <!-- Knee Puck scraping kerb -->
+      <ellipse cx="3" cy="2" rx="2.5" ry="1.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Championship Laurels & Trophy Emblem (Top-Right) -->
+    <g transform="translate(${w - 24}, 26)">
+      <!-- Pedestal Trophy Cup -->
+      <polygon points="-5,-4 5,-4 3,4 -3,4" fill="${C.crimson}"/>
+      <rect x="-1.5" y="4" width="3" height="4" fill="${C.steelDark}"/>
+      <rect x="-4" y="8" width="8" height="2" fill="${C.steelDark}"/>
+      <path d="M -5,-2 C -8,-2 -8,2 -5,2" fill="none" stroke="${C.crimson}" stroke-width="0.8"/>
+      <path d="M 5,-2 C 8,-2 8,2 5,2" fill="none" stroke="${C.crimson}" stroke-width="0.8"/>
+      
+      <!-- Twin Laurel Wreath Branches -->
+      <path d="M -9,8 C -14,2 -13,-6 -7,-12" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <path d="M 9,8 C 14,2 13,-6 7,-12" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <!-- Leaves -->
+      <circle cx="-11" cy="3" r="1.5" fill="${C.steelMid}"/>
+      <circle cx="-11" cy="-3" r="1.5" fill="${C.steelMid}"/>
+      <circle cx="-8" cy="-8" r="1.5" fill="${C.steelMid}"/>
+      <circle cx="11" cy="3" r="1.5" fill="${C.steelMid}"/>
+      <circle cx="11" cy="-3" r="1.5" fill="${C.steelMid}"/>
+      <circle cx="8" cy="-8" r="1.5" fill="${C.steelMid}"/>
+    </g>
   `;
 }
 
-// 5. Bahrain Demands UN Action: Industrial Skyline & UN Olive-Branch Council Emblem
+// 5. Verstappen Wins Las Vegas GP: Neon Skyline, F1 Car & Checkered Flag
 function renderIllustration5(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Manama Coastal Industrial Facility Silhouette (Bottom Left) -->
-    <g transform="translate(8, ${h - 18})">
-      <line x1="-2" y1="0" x2="48" y2="0" stroke="${C.steelDark}" stroke-width="1.5"/>
-      <ellipse cx="14" cy="-12" rx="10" ry="4" fill="${C.steelDark}"/>
-      <rect x="4" y="-12" width="20" height="12" fill="${C.steelDark}"/>
-      <rect x="27" y="-34" width="8" height="34" fill="${C.steelMid}"/>
-      <line x1="31" y1="-38" x2="31" y2="-34" stroke="${C.inkNavy}" stroke-width="1.2"/>
-      <!-- Small crimson alert wave / spark over facility -->
-      <path d="M 29,-44 Q 31,-38 35,-42 Q 33,-48 31,-46 Z" fill="${C.crimson}"/>
-      <circle cx="31" cy="-42" r="1.5" fill="${C.crimson}"/>
-      <path d="M 12,-38 Q 20,-44 28,-40" fill="none" stroke="${C.crimson}" stroke-width="1" stroke-dasharray="2,2"/>
+    
+    <!-- Midnight Strip Skyline Backdrop -->
+    <!-- Luxor Pyramid & Sky Beam -->
+    <polygon points="12,46 32,18 52,46" fill="#CBD5E1"/>
+    <polygon points="30,18 34,18 38,0 26,0" fill="#FFF8DC" opacity="0.6"/>
+    <!-- Vegas Neon Diamond Sign Silhouette -->
+    <polygon points="66,16 75,24 66,32 57,24" fill="none" stroke="${C.crimson}" stroke-width="1.4"/>
+    <circle cx="66" cy="24" r="2" fill="${C.crimson}"/>
+    <!-- Observation Wheel Outline -->
+    <circle cx="78" cy="42" r="14" fill="none" stroke="${C.steelLight}" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="78" y1="42" x2="78" y2="56" stroke="${C.steelMid}" stroke-width="1.2"/>
+
+    <!-- Track Asphalt Surface -->
+    <rect x="0" y="${h - 40}" width="${w}" height="40" fill="#334155"/>
+    <line x1="0" y1="${h - 20}" x2="${w}" y2="${h - 20}" stroke="#FFFFFF" stroke-width="1.2" stroke-dasharray="8,6" opacity="0.6"/>
+
+    <!-- Formula 1 Open-Wheel Race Car (Dynamic 3/4 Front View) -->
+    <g transform="translate(18, ${h - 26})">
+      <!-- Wide Rear Slick Tyres -->
+      <rect x="0" y="-12" width="8" height="15" rx="2" fill="${C.inkNavy}"/>
+      <rect x="42" y="-12" width="8" height="15" rx="2" fill="${C.inkNavy}"/>
+      <!-- Low Aerodynamic Monocoque Body -->
+      <polygon points="4,0 46,0 36,-6 14,-6" fill="${C.steelDark}"/>
+      <polygon points="16,-6 34,-6 28,-14 22,-14" fill="${C.inkNavy}"/>
+      <!-- Driver Helmet & Halo Safety Loop -->
+      <circle cx="25" cy="-11" r="3" fill="#F59E0B"/>
+      <path d="M 20,-11 C 20,-16 30,-16 30,-11" fill="none" stroke="${C.steelLight}" stroke-width="1.5"/>
+      <!-- Front Nosecone & Wing Assembly -->
+      <polygon points="21,0 29,0 27,10 23,10" fill="${C.steelDark}"/>
+      <rect x="10" y="8" width="30" height="3" rx="0.8" fill="${C.crimson}"/>
+      <!-- Front Slick Tyres -->
+      <rect x="7" y="3" width="6" height="11" rx="1.5" fill="${C.inkNavy}"/>
+      <rect x="37" y="3" width="6" height="11" rx="1.5" fill="${C.inkNavy}"/>
     </g>
 
-    <!-- Clean UN Olive-Branch / Council Emblem (Right / Upper) -->
-    <g transform="translate(64, 38)">
-      <!-- Central Globe -->
-      <circle cx="0" cy="0" r="13" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.3"/>
-      <line x1="-13" y1="0" x2="13" y2="0" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="0" y1="-13" x2="0" y2="13" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <ellipse cx="0" cy="0" rx="6.5" ry="13" fill="none" stroke="${C.steelMid}" stroke-width="0.8"/>
-
-      <!-- Twin Olive Branches Flanking the Globe -->
-      <!-- Left Branch Arc -->
-      <path d="M -16,10 C -21,2 -19,-8 -12,-15" fill="none" stroke="${C.steelDark}" stroke-width="1.4"/>
-      <!-- Left Leaves -->
-      <path d="M -17,5 C -22,4 -23,-1 -19,1 Z" fill="${C.steelMid}"/>
-      <path d="M -19,-4 C -24,-5 -24,-10 -20,-8 Z" fill="${C.steelMid}"/>
-      <path d="M -15,-12 C -19,-15 -17,-19 -13,-16 Z" fill="${C.steelMid}"/>
-
-      <!-- Right Branch Arc -->
-      <path d="M 16,10 C 21,2 19,-8 12,-15" fill="none" stroke="${C.steelDark}" stroke-width="1.4"/>
-      <!-- Right Leaves -->
-      <path d="M 17,5 C 22,4 23,-1 19,1 Z" fill="${C.steelMid}"/>
-      <path d="M 19,-4 C 24,-5 24,-10 20,-8 Z" fill="${C.steelMid}"/>
-      <path d="M 15,-12 C 19,-15 17,-19 13,-16 Z" fill="${C.steelMid}"/>
-
-      <!-- UN Gavel Silhouette at Base -->
-      <g transform="translate(0, 22) rotate(22)">
-        <rect x="-6" y="-2.5" width="12" height="5" rx="1" fill="${C.crimson}"/>
-        <rect x="-1.5" y="2.5" width="3" height="10" rx="0.8" fill="${C.steelDark}"/>
+    <!-- Waving Checkered Victory Flag (Top-Right) -->
+    <g transform="translate(${w - 22}, 18)">
+      <line x1="-10" y1="0" x2="-10" y2="34" stroke="${C.inkNavy}" stroke-width="1.5"/>
+      <g transform="translate(-10, 0)">
+        <rect x="0" y="0" width="5" height="5" fill="${C.inkNavy}"/>
+        <rect x="5" y="0" width="5" height="5" fill="#FFFFFF"/>
+        <rect x="10" y="0" width="5" height="5" fill="${C.inkNavy}"/>
+        <rect x="0" y="5" width="5" height="5" fill="#FFFFFF"/>
+        <rect x="5" y="5" width="5" height="5" fill="${C.crimson}"/>
+        <rect x="10" y="5" width="5" height="5" fill="#FFFFFF"/>
+        <rect x="0" y="10" width="5" height="5" fill="${C.inkNavy}"/>
+        <rect x="5" y="10" width="5" height="5" fill="#FFFFFF"/>
+        <rect x="10" y="10" width="5" height="5" fill="${C.inkNavy}"/>
       </g>
     </g>
   `;
 }
 
-// 6. Nigeria Boat Capsizes: Solemn Ocean Swells & Overturned Vessel
+// 6. US–China Tech Curb Clash: Server Rack, Optical Transceiver & Blocked Trace
 function renderIllustration6(w: number, h: number): string {
+  return `
+    <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
+    
+    <!-- Top: Datacenter Server Blade Chassis -->
+    <g transform="translate(10, 10)">
+      <rect x="0" y="0" width="${w - 20}" height="32" rx="2.5" fill="${C.inkNavy}"/>
+      <rect x="3" y="3" width="${w - 26}" height="26" rx="1.5" fill="${C.steelDark}"/>
+      <!-- Server Slots -->
+      ${[0, 1].map(row => `
+        <rect x="6" y="${6 + row * 11}" width="${w - 38}" height="8" rx="1" fill="${C.inkNavy}" stroke="${C.steelMid}" stroke-width="0.6"/>
+        <circle cx="12" cy="${10 + row * 11}" r="1.5" fill="${row === 0 ? '#10B981' : C.crimson}"/>
+        <circle cx="18" cy="${10 + row * 11}" r="1.5" fill="${C.steelLight}"/>
+        <line x1="24" y1="${10 + row * 11}" x2="${w - 46}" y2="${10 + row * 11}" stroke="${C.steelMid}" stroke-width="1" stroke-dasharray="3,2"/>
+      `).join('')}
+    </g>
+
+    <!-- Center: Optical Transceiver Package (QSFP-DD Form Factor) -->
+    <g transform="translate(${w / 2 - 18}, 48)">
+      <rect x="0" y="0" width="36" height="24" rx="2" fill="${C.steelDark}" stroke="${C.inkNavy}" stroke-width="1.2"/>
+      <rect x="4" y="4" width="28" height="16" fill="${C.cardBg}"/>
+      <!-- Optical Emitter Core -->
+      <circle cx="18" cy="12" r="4.5" fill="${C.crimson}"/>
+      <circle cx="18" cy="12" r="2" fill="#FFFFFF"/>
+      <!-- Gold Connector Pins -->
+      <line x1="8" y1="24" x2="8" y2="28" stroke="#F59E0B" stroke-width="1.2"/>
+      <line x1="14" y1="24" x2="14" y2="28" stroke="#F59E0B" stroke-width="1.2"/>
+      <line x1="22" y1="24" x2="22" y2="28" stroke="#F59E0B" stroke-width="1.2"/>
+      <line x1="28" y1="24" x2="28" y2="28" stroke="#F59E0B" stroke-width="1.2"/>
+    </g>
+
+    <!-- Bottom: Circuit Bus & Blocked Trace -->
+    <g transform="translate(10, 80)">
+      <!-- Unrestricted Trace -->
+      <path d="M 0,6 H 24 V 16 H 70" fill="none" stroke="${C.steelMid}" stroke-width="1.5"/>
+      <circle cx="24" cy="16" r="2.5" fill="${C.steelMid}"/>
+      <!-- Blocked Trace with Crimson Lockout Node -->
+      <path d="M 0,18 H 36" fill="none" stroke="${C.crimson}" stroke-width="1.8" stroke-dasharray="3,2"/>
+      <g transform="translate(42, 18)">
+        <circle cx="0" cy="0" r="5" fill="${C.crimson}"/>
+        <line x1="-3" y1="-3" x2="3" y2="3" stroke="#FFFFFF" stroke-width="1.2"/>
+        <line x1="3" y1="-3" x2="-3" y2="3" stroke="#FFFFFF" stroke-width="1.2"/>
+      </g>
+      <path d="M 48,18 H ${w - 20}" fill="none" stroke="${C.charcoal}" stroke-width="1.2" stroke-dasharray="2,3"/>
+    </g>
+  `;
+}
+
+// 7. S. Korea Minister to Resign: Seoul Portico, AI Exam Network & Ministerial Seal
+function renderIllustration7(w: number, h: number): string {
+  return `
+    <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
+    
+    <!-- Top: Seoul Ministry Portico Architecture -->
+    <g transform="translate(14, 12)">
+      <!-- Triangular Pediment -->
+      <polygon points="0,12 31,0 62,12" fill="${C.steelDark}"/>
+      <rect x="2" y="12" width="58" height="3" fill="${C.steelMid}"/>
+      <!-- 4 Fluted Pillars -->
+      <rect x="5" y="15" width="6" height="22" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1"/>
+      <rect x="20" y="15" width="6" height="22" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1"/>
+      <rect x="36" y="15" width="6" height="22" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1"/>
+      <rect x="51" y="15" width="6" height="22" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1"/>
+      <!-- Base Plinth -->
+      <rect x="0" y="37" width="62" height="4" fill="${C.steelDark}"/>
+    </g>
+
+    <!-- Center-Right: AI Exam Cheating Neural Lattice -->
+    <g transform="translate(14, 58)">
+      <!-- Digital Grid / Exam Paper Matrix -->
+      <rect x="0" y="0" width="34" height="42" rx="2" fill="${C.cardBg}" stroke="${C.steelMid}" stroke-width="1"/>
+      <!-- Exam Answer Grid Lines -->
+      <line x1="4" y1="8" x2="18" y2="8" stroke="${C.steelLight}" stroke-width="1"/>
+      <line x1="4" y1="16" x2="18" y2="16" stroke="${C.steelLight}" stroke-width="1"/>
+      <line x1="4" y1="24" x2="18" y2="24" stroke="${C.steelLight}" stroke-width="1"/>
+      <line x1="4" y1="32" x2="18" y2="32" stroke="${C.steelLight}" stroke-width="1"/>
+      <!-- Neural Network Nodes Intersecting Paper -->
+      <circle cx="24" cy="8" r="2.5" fill="${C.steelDark}"/>
+      <circle cx="28" cy="20" r="2.5" fill="${C.steelDark}"/>
+      <circle cx="22" cy="32" r="3" fill="${C.crimson}"/>
+      <line x1="24" y1="8" x2="28" y2="20" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="28" y1="20" x2="22" y2="32" stroke="${C.crimson}" stroke-width="1.2"/>
+      <!-- Crimson Flagged Anomaly Ring -->
+      <circle cx="22" cy="32" r="5.5" fill="none" stroke="${C.crimson}" stroke-width="0.8" stroke-dasharray="2,1.5"/>
+    </g>
+
+    <!-- Right: Resignation Document & Red Ministerial Stamp -->
+    <g transform="translate(56, 62)">
+      <!-- Ministerial Document / Folded Letter -->
+      <polygon points="0,0 24,0 24,32 6,32 0,26" fill="#F4F8FA" stroke="${C.steelDark}" stroke-width="1.2"/>
+      <polygon points="0,26 6,26 6,32" fill="${C.steelMid}"/>
+      <!-- Text Lines -->
+      <line x1="4" y1="6" x2="20" y2="6" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="4" y1="12" x2="18" y2="12" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="4" y1="18" x2="16" y2="18" stroke="${C.steelMid}" stroke-width="1"/>
+      <!-- Official Crimson Resignation Seal Stamp -->
+      <circle cx="16" cy="24" r="5" fill="${C.crimson}"/>
+      <rect x="13.5" y="21.5" width="5" height="5" fill="#FFFFFF"/>
+    </g>
+  `;
+}
+
+// 8. Nigeria Boat Capsizes: Solemn Ocean Swells & Overturned Vessel
+function renderIllustration8(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
     <!-- Dusk Sky Horizon -->
@@ -398,8 +591,8 @@ function renderIllustration6(w: number, h: number): string {
     <!-- Swell Layer 2 -->
     <path d="M 0,${h * 0.58} Q 32,${h * 0.48} 68,${h * 0.60} T ${w},${h * 0.54} L ${w},${h} L 0,${h} Z" fill="#648595"/>
     <path d="M 0,${h * 0.58} Q 32,${h * 0.48} 68,${h * 0.60} T ${w},${h * 0.54}" fill="none" stroke="#FFFFFF" stroke-width="1.4" opacity="0.85"/>
-    <!-- Capsized Boat Silhouette -->
-    <g transform="translate(48, ${h * 0.52}) rotate(26)">
+    <!-- Capsized Wooden Ferry Boat Silhouette -->
+    <g transform="translate(46, ${h * 0.52}) rotate(26)">
       <path d="M -22,0 L 20,-3 L 24,7 L -18,6 Z" fill="${C.inkNavy}"/>
       <line x1="-12" y1="0" x2="-12" y2="-8" stroke="${C.inkNavy}" stroke-width="1.5"/>
       <line x1="0" y1="-1" x2="0" y2="-9" stroke="${C.inkNavy}" stroke-width="1.5"/>
@@ -414,145 +607,51 @@ function renderIllustration6(w: number, h: number): string {
   `;
 }
 
-// 7. Japan Bans 4 Chemicals: Molecular Ring & Laboratory Flask
-function renderIllustration7(w: number, h: number): string {
-  const cx = w / 2;
-  return `
-    <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Hexagonal Benzene Ring Molecule -->
-    <g transform="translate(32, 28)">
-      <polygon points="18,0 34,9 34,27 18,36 2,27 2,9" fill="none" stroke="${C.steelDark}" stroke-width="1.8"/>
-      <polygon points="18,5 30,12 30,24 18,31 6,24 6,12" fill="none" stroke="${C.steelMid}" stroke-width="1" stroke-dasharray="3,2"/>
-      <circle cx="18" cy="0" r="2.5" fill="${C.steelDark}"/>
-      <circle cx="34" cy="9" r="2.5" fill="${C.steelDark}"/>
-      <circle cx="34" cy="27" r="2.5" fill="${C.steelDark}"/>
-      <circle cx="18" cy="36" r="2.5" fill="${C.crimson}"/>
-      <circle cx="2" cy="27" r="2.5" fill="${C.steelDark}"/>
-      <circle cx="2" cy="9" r="2.5" fill="${C.steelDark}"/>
-    </g>
-    <!-- Erlenmeyer Chemistry Flask & Liquid Level -->
-    <g transform="translate(${cx + 12}, 20)">
-      <polygon points="12,0 18,0 18,12 32,38 32,42 -2,42 -2,38 12,12" fill="none" stroke="${C.inkNavy}" stroke-width="1.8"/>
-      <polygon points="3,34 27,34 30,40 0,40" fill="${C.steelLight}" opacity="0.85"/>
-      <circle cx="12" cy="37" r="1.5" fill="${C.crimson}"/>
-      <circle cx="18" cy="36" r="1.2" fill="${C.steelDark}"/>
-      <line x1="8" y1="26" x2="13" y2="26" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="6" y1="31" x2="12" y2="31" stroke="${C.steelMid}" stroke-width="1"/>
-    </g>
-    <!-- Prohibition Slash Motif -->
-    <g transform="translate(${w - 20}, ${h - 20})">
-      <circle cx="0" cy="0" r="10" fill="none" stroke="${C.crimson}" stroke-width="2"/>
-      <line x1="-7" y1="-7" x2="7" y2="7" stroke="${C.crimson}" stroke-width="2"/>
-    </g>
-  `;
-}
-
-// 8. Paolo Bulgari Dies at 89: Faceted Gemstone & Minimalist Roman Column
-function renderIllustration8(w: number, h: number): string {
-  return `
-    <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Minimalist Classical Roman Column (Left) -->
-    <g transform="translate(10, 18)">
-      <rect x="2" y="2" width="24" height="3" rx="0.8" fill="${C.steelDark}"/>
-      <path d="M 2,6 C 0,4 2,2 5,4.5 L 23,4.5 C 26,2 28,4 26,6" fill="none" stroke="${C.steelDark}" stroke-width="1.5"/>
-      <rect x="4" y="7" width="20" height="2" fill="${C.steelMid}"/>
-      
-      <rect x="5" y="9" width="18" height="54" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.3"/>
-      <line x1="9" y1="10" x2="9" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="14" y1="10" x2="14" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="19" y1="10" x2="19" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
-
-      <rect x="3" y="63" width="22" height="3.5" rx="0.6" fill="${C.steelMid}"/>
-      <rect x="0" y="66.5" width="28" height="4.5" rx="1" fill="${C.steelDark}"/>
-    </g>
-
-    <!-- Crisp Faceted Brilliant-Cut Diamond / Gemstone (Right) -->
-    <g transform="translate(58, 48)">
-      <!-- Crown / Table Top -->
-      <polygon points="-14,-14 14,-14 22,-2 -22,-2" fill="#EDF3F7" stroke="${C.steelDark}" stroke-width="1.5"/>
-      <polygon points="-9,-14 9,-14 13,-8 -13,-8" fill="#FFFFFF" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="-14" y1="-14" x2="-13" y2="-8" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="14" y1="-14" x2="13" y2="-8" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="-13" y1="-8" x2="-22" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="13" y1="-8" x2="22" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="0" y1="-14" x2="0" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
-
-      <!-- Girdle Separator -->
-      <line x1="-22" y1="-2" x2="22" y2="-2" stroke="${C.steelDark}" stroke-width="1.6"/>
-
-      <!-- Lower Pavilion Cone -->
-      <polygon points="-22,-2 22,-2 0,28" fill="#D2E2EA" stroke="${C.steelDark}" stroke-width="1.5"/>
-      <line x1="0" y1="28" x2="-11" y2="-2" stroke="${C.steelMid}" stroke-width="0.9"/>
-      <line x1="0" y1="28" x2="11" y2="-2" stroke="${C.steelMid}" stroke-width="0.9"/>
-      <polygon points="-11,-2 11,-2 0,15" fill="#C2D8E3" stroke="${C.steelMid}" stroke-width="0.8"/>
-
-      <!-- Crimson Sparkle Glint -->
-      <circle cx="17" cy="-18" r="2.5" fill="${C.crimson}"/>
-      <line x1="17" y1="-23" x2="17" y2="-13" stroke="${C.crimson}" stroke-width="1"/>
-      <line x1="12" y1="-18" x2="22" y2="-18" stroke="${C.crimson}" stroke-width="1"/>
-    </g>
-  `;
-}
-
-// 9. Bougainville / Pacific Relief Aid: Coastline, Helicopter & Parachute Aid Crate
+// 9. Australia Rejects AUKUS Critique: Surfaced Submarine, Waves & Parliament Spire
 function renderIllustration9(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Tropical Island Shoreline & Palm (Bottom) -->
-    <path d="M 0,92 Q 25,86 55,94 T ${w},88 L ${w},108 L 0,108 Z" fill="#D2DDD8"/>
-    <g transform="translate(18, 92)">
-      <path d="M 0,0 Q -3,-14 -8,-20" fill="none" stroke="${C.steelDark}" stroke-width="1.8"/>
-      <path d="M -8,-20 Q -16,-23 -20,-20" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
-      <path d="M -8,-20 Q -10,-28 -5,-30" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
-      <path d="M -8,-20 Q 0,-27 4,-26" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+    
+    <!-- Background: Canberra Parliament House Flagpole Spire Silhouette -->
+    <g transform="translate(62, 16)">
+      <!-- Sloping Hill Grassline -->
+      <path d="M -40,32 Q -10,24 20,32" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
+      <!-- Triangular Stainless Steel Mast -->
+      <polygon points="0,0 2,24 -2,24" fill="${C.steelDark}"/>
+      <line x1="-12" y1="24" x2="0" y2="4" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="12" y1="24" x2="0" y2="4" stroke="${C.steelMid}" stroke-width="1"/>
+      <!-- Top Flag -->
+      <polygon points="0,0 8,3 0,6" fill="${C.crimson}"/>
     </g>
 
-    <!-- Rescue Helicopter (Top - generous clearance, rotor at y=14) -->
-    <g transform="translate(50, 26)">
-      <!-- Main Rotor Blade & Spinning Disc -->
-      <ellipse cx="0" cy="-10" rx="26" ry="3" fill="none" stroke="${C.steelMid}" stroke-width="0.8" stroke-dasharray="3,2"/>
-      <line x1="-24" y1="-10" x2="24" y2="-10" stroke="${C.steelDark}" stroke-width="1.8"/>
-      <line x1="0" y1="-10" x2="0" y2="-5" stroke="${C.steelDark}" stroke-width="2"/>
-      
-      <!-- Sculpted Aerodynamic Fuselage -->
-      <path d="M -16,3 L -18,0 L -12,-5 L 4,-5 L 14,-1 L 14,3 L -12,4 Z" fill="#DDE7EC" stroke="${C.steelDark}" stroke-width="1.4"/>
-      <!-- Cockpit Windscreen -->
-      <polygon points="-16,0 -12,-4 -7,-4 -9,0" fill="${C.steelDark}"/>
-      <!-- Windows -->
-      <rect x="-4" y="-3" width="5" height="4.5" rx="0.8" fill="${C.steelDark}"/>
-      <rect x="3" y="-3" width="5" height="4.5" rx="0.8" fill="${C.steelDark}"/>
-
-      <!-- Tail Boom & Stabilizer Fin -->
-      <line x1="14" y1="0" x2="30" y2="-2" stroke="${C.steelDark}" stroke-width="2"/>
-      <polygon points="27,-2 31,-9 29,-2" fill="${C.crimson}"/>
-      <line x1="31" y1="-10" x2="31" y2="-2" stroke="${C.steelMid}" stroke-width="1.2"/>
-
-      <!-- Landing Skids -->
-      <line x1="-12" y1="7" x2="10" y2="7" stroke="${C.steelDark}" stroke-width="1.4"/>
-      <line x1="-8" y1="3" x2="-10" y2="7" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <line x1="6" y1="3" x2="4" y2="7" stroke="${C.steelDark}" stroke-width="1.2"/>
+    <!-- Rolling Pacific Ocean Swell Layers -->
+    <path d="M 0,56 Q 30,48 55,56 T ${w},52 L ${w},${h} L 0,${h} Z" fill="#9BB3BF"/>
+    <path d="M 0,68 Q 25,62 50,70 T ${w},66 L ${w},${h} L 0,${h} Z" fill="#648595"/>
+    
+    <!-- Surfaced Nuclear-Powered Attack Submarine (AUKUS SSN) -->
+    <g transform="translate(10, 64)">
+      <!-- Submarine Hull -->
+      <path d="M 0,10 Q 12,2 40,2 L 60,3 Q 68,5 72,12 L 0,12 Z" fill="${C.inkNavy}"/>
+      <!-- Conning Tower / Sail -->
+      <polygon points="26,2 32,-8 40,-8 42,2" fill="${C.inkNavy}"/>
+      <!-- Periscope & Sensor Masts -->
+      <line x1="34" y1="-8" x2="34" y2="-14" stroke="${C.steelDark}" stroke-width="1.2"/>
+      <line x1="38" y1="-8" x2="38" y2="-12" stroke="${C.steelDark}" stroke-width="1"/>
+      <!-- Hydrofoil Bow Diving Planes -->
+      <line x1="16" y1="6" x2="24" y2="6" stroke="${C.steelMid}" stroke-width="1.6"/>
+      <!-- Frothing Bow Wave Wake -->
+      <path d="M 0,10 Q -4,8 -6,12" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+      <path d="M 12,12 Q 22,8 35,12" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
     </g>
 
-    <!-- Airdropped Relief Supply Crate with Parachute (Middle, y=46 to 78) -->
-    <g transform="translate(50, 52)">
-      <!-- Crimson Parachute Canopy -->
-      <path d="M -13,0 A 13 13 0 0 1 13,0 Z" fill="${C.crimson}"/>
-      <path d="M -6,0 A 6 13 0 0 1 6,0" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
-      <!-- Suspension Cords -->
-      <line x1="-13" y1="0" x2="-3" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="13" y1="0" x2="3" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <line x1="0" y1="0" x2="0" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
-      <!-- Aid Box Crate -->
-      <rect x="-7" y="12" width="14" height="12" rx="1.5" fill="#F4F8FA" stroke="${C.steelDark}" stroke-width="1.3"/>
-      <!-- Crimson Relief Cross -->
-      <rect x="-1.5" y="14" width="3" height="8" fill="${C.crimson}"/>
-      <rect x="-4" y="16.5" width="8" height="3" fill="${C.crimson}"/>
-    </g>
+    <!-- Foreground Deep Pacific Trench Waters -->
+    <path d="M 0,82 Q 35,74 70,84 T ${w},80 L ${w},${h} L 0,${h} Z" fill="#2C4A5A"/>
+    <line x1="4" y1="${h - 10}" x2="${w - 4}" y2="${h - 10}" stroke="#9BB3BF" stroke-width="0.8" stroke-dasharray="6,4"/>
   `;
 }
 
 // ============================================================================
-// SVG BUILDER: 17-STORY, 7-REGION BROADSHEET FRONT PAGE
+// SVG BUILDER: 24-STORY, 7-REGION BROADSHEET FRONT PAGE
 // ============================================================================
 function buildSVG(data: NewsData): string {
   // Map dimensions (local coordinates inside group)
@@ -565,15 +664,15 @@ function buildSVG(data: NewsData): string {
 
   // Accurate Map Pins 1–9 with calibrated offsets to prevent badge collisions
   const pins = [
-    { id: 1, name: 'Antalya', lat: 36.9, lon: 30.7, color: C.regGlobal, dx: 4, dy: -3 },
-    { id: 2, name: 'Mecca', lat: 21.4, lon: 39.8, color: C.regMidEast, dx: -5, dy: 6 },
-    { id: 3, name: 'Washington DC', lat: 38.9, lon: -77.0, color: C.regAmericas, dx: 0, dy: 0 },
-    { id: 4, name: 'Warsaw', lat: 52.2, lon: 21.0, color: C.regEurope, dx: 0, dy: -5 },
-    { id: 5, name: 'Manama', lat: 26.2, lon: 50.6, color: C.regMidEast, dx: 6, dy: -4 },
-    { id: 6, name: 'Nigeria', lat: 9.1, lon: 7.4, color: C.regAfrica, dx: 0, dy: 0 },
-    { id: 7, name: 'Tokyo', lat: 35.7, lon: 139.7, color: C.regAsia, dx: 0, dy: 0 },
-    { id: 8, name: 'Rome', lat: 41.9, lon: 12.5, color: C.regEurope, dx: -6, dy: 0 },
-    { id: 9, name: 'Bougainville', lat: -6.2, lon: 155.4, color: C.regOceania, dx: 0, dy: 0 },
+    { id: 1, name: 'Antalya', lat: 36.9, lon: 30.7, color: C.regGlobal, dx: 0, dy: 4 },
+    { id: 2, name: 'Gulf/Riyadh', lat: 24.7, lon: 46.7, color: C.regMidEast, dx: 0, dy: 0 },
+    { id: 3, name: 'Kyiv', lat: 50.4, lon: 30.5, color: C.regEurope, dx: 0, dy: -4 },
+    { id: 4, name: 'Portimão', lat: 37.2, lon: -8.6, color: C.regEurope, dx: 0, dy: 0 },
+    { id: 5, name: 'Las Vegas', lat: 36.2, lon: -115.1, color: C.regAmericas, dx: -4, dy: 0 },
+    { id: 6, name: 'Washington DC', lat: 38.9, lon: -77.0, color: C.regAmericas, dx: 0, dy: 0 },
+    { id: 7, name: 'Seoul', lat: 37.6, lon: 127.0, color: C.regAsia, dx: 0, dy: 0 },
+    { id: 8, name: 'Nigeria', lat: 9.1, lon: 7.4, color: C.regAfrica, dx: 0, dy: 0 },
+    { id: 9, name: 'Canberra', lat: -35.3, lon: 149.1, color: C.regOceania, dx: 0, dy: 0 },
   ];
 
   const totalWidth = 992; // x: 16 to 1008
@@ -641,7 +740,7 @@ function buildSVG(data: NewsData): string {
       }
       .grid-title {
         font-family: 'Georgia', 'Times New Roman', serif;
-        font-size: 11.2px;
+        font-size: 10.6px;
         font-weight: 900;
         fill: ${C.inkNavy};
         letter-spacing: -0.2px;
@@ -660,9 +759,9 @@ function buildSVG(data: NewsData): string {
         letter-spacing: 0.6px;
         text-transform: uppercase;
       }
-      .bottom-story-text {
+      .bottom-col-text {
         font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
-        font-size: 10px;
+        font-size: 8px;
         fill: ${C.inkNavy};
       }
     </style>
@@ -683,7 +782,7 @@ function buildSVG(data: NewsData): string {
     <g transform="translate(720, 16)">
       <rect width="288" height="56" rx="5" fill="${C.crimson}"/>
       <rect x="3" y="3" width="282" height="50" rx="3.5" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.3"/>
-      <text x="144" y="21" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.5" font-weight="800" fill="${C.crimsonLight}" letter-spacing="1.5">GLOBAL EDITION • 24-HOUR RECORD</text>
+      <text x="144" y="21" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.5" font-weight="800" fill="${C.crimsonLight}" letter-spacing="1.5">GLOBAL EDITION • FULL-DAY RECORD</text>
       <text x="144" y="44" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="0.8">${esc(data.displayDate)}</text>
     </g>
 
@@ -699,14 +798,16 @@ function buildSVG(data: NewsData): string {
       const bx = 16 + i * 167;
       const bw = 158;
       const words = num.label.split(' ');
-      const l1 = words.slice(0, 3).join(' ');
-      const l2 = words.slice(3).join(' ');
-      const numFontSize = num.value.length >= 5 ? 15.5 : num.value.length === 4 ? 16.5 : 17.5;
-      const labelX = num.value.length >= 5 ? 65 : num.value.length >= 4 ? 58 : num.value.length === 3 ? 48 : 36;
+      const mid = Math.ceil(words.length / 2);
+      const l1 = words.slice(0, mid).join(' ');
+      const l2 = words.slice(mid).join(' ');
+      const numFontSize = num.value === 'NO DEAL' ? 12.5 : num.value.length >= 7 ? 13 : num.value.length >= 5 ? 15.5 : num.value.length >= 4 ? 16.5 : 17.5;
+      const labelX = num.value === 'NO DEAL' ? 70 : num.value.length >= 7 ? 68 : num.value.length >= 5 ? 65 : num.value.length >= 4 ? 58 : num.value.length === 3 ? 46 : 36;
+      const isRed = i === 0 || i === 3 || i === 4;
       return `
         <g transform="translate(${bx}, 84)">
           <rect width="${bw}" height="40" rx="3.5" fill="${C.cardMuted}" stroke="${C.cardBorder}" stroke-width="1"/>
-          <text x="10" y="26" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="${numFontSize}" font-weight="900" fill="${i === 1 || i === 2 ? C.crimson : C.inkNavy}">${esc(num.value)}</text>
+          <text x="8" y="26" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="${numFontSize}" font-weight="900" fill="${isRed ? C.crimson : C.inkNavy}">${esc(num.value)}</text>
           <text x="${labelX}" y="16" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="600" fill="${C.charcoal}">${esc(l1)}</text>
           <text x="${labelX}" y="27" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="600" fill="${C.charcoal}">${esc(l2)}</text>
         </g>
@@ -721,12 +822,13 @@ function buildSVG(data: NewsData): string {
     <rect width="${totalWidth}" height="20" rx="3" fill="${C.cardMuted}" stroke="${C.cardBorder}" stroke-width="1"/>
     ${(() => {
       let currentX = 0;
-      const totalStories = 17;
+      const totalStories = 24;
       return data.regionDistribution.map(r => {
         const segWidth = (r.count / totalStories) * totalWidth;
+        const segText = segWidth < 50 ? `${r.code} (${r.count})` : `${esc(r.region.toUpperCase())} (${r.count})`;
         const out = `
           <rect x="${currentX}" y="0" width="${segWidth}" height="20" fill="${r.color}" stroke="${C.paper}" stroke-width="0.75"/>
-          <text x="${currentX + segWidth / 2}" y="13.5" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.2" font-weight="800" fill="#FFFFFF" letter-spacing="0.6">${esc(r.region.toUpperCase())} (${r.count})</text>
+          <text x="${currentX + segWidth / 2}" y="13.5" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.2" font-weight="800" fill="#FFFFFF" letter-spacing="0.6">${segText}</text>
         `;
         currentX += segWidth;
         return out;
@@ -818,11 +920,11 @@ function buildSVG(data: NewsData): string {
           </g>
 
           <!-- Right Content Area -->
-          <g transform="translate(106, 12)">
+          <g transform="translate(102, 12)">
             <!-- Header Tag & Badge -->
             <rect x="0" y="0" width="3" height="14" rx="1.5" fill="${story.regionColor}"/>
             <text x="8" y="11" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.5" font-weight="900" fill="${story.regionColor}">[${story.id}] ${esc(story.region)}</text>
-            <g transform="translate(${cardW - 162}, 0)">
+            <g transform="translate(${cardW - 158}, 0)">
               ${renderStatusBadge(story.status, 6.5)}
             </g>
 
@@ -900,87 +1002,122 @@ function buildSVG(data: NewsData): string {
         <g transform="translate(0, 14)">
           <circle cx="5" cy="-2.5" r="4.5" fill="${C.regGlobal}"/>
           <text x="5" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">1</text>
-          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Antalya: COP31 Deal</text>
+          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Antalya: COP31 Collapse</text>
 
           <circle cx="134" cy="-2.5" r="4.5" fill="${C.regMidEast}"/>
           <text x="134" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">2</text>
-          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">W. Saudi: Missile Intercept</text>
+          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Gulf: Missile Defense</text>
 
-          <circle cx="268" cy="-2.5" r="4.5" fill="${C.regAmericas}"/>
+          <circle cx="268" cy="-2.5" r="4.5" fill="${C.regEurope}"/>
           <text x="268" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">3</text>
-          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Washington: Tech Curb</text>
+          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Kyiv: Strike &amp; Ship Fire</text>
         </g>
 
         <!-- Row 2 -->
         <g transform="translate(0, 42)">
           <circle cx="5" cy="-2.5" r="4.5" fill="${C.regEurope}"/>
           <text x="5" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">4</text>
-          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Poland: Airspace Alert</text>
+          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Portimão: Márquez 8th</text>
 
-          <circle cx="134" cy="-2.5" r="4.5" fill="${C.regMidEast}"/>
+          <circle cx="134" cy="-2.5" r="4.5" fill="${C.regAmericas}"/>
           <text x="134" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">5</text>
-          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Bahrain: UN Action Call</text>
+          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Las Vegas: F1 Victory</text>
 
-          <circle cx="268" cy="-2.5" r="4.5" fill="${C.regAfrica}"/>
+          <circle cx="268" cy="-2.5" r="4.5" fill="${C.regAmericas}"/>
           <text x="268" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">6</text>
-          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Nigeria: Boat Tragedy</text>
+          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Washington: Tech Curb</text>
         </g>
 
         <!-- Row 3 -->
         <g transform="translate(0, 70)">
           <circle cx="5" cy="-2.5" r="4.5" fill="${C.regAsia}"/>
           <text x="5" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">7</text>
-          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Japan: 4 Chemical Bans</text>
+          <text x="13" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Seoul: Minister to Resign</text>
 
-          <circle cx="134" cy="-2.5" r="4.5" fill="${C.regEurope}"/>
+          <circle cx="134" cy="-2.5" r="4.5" fill="${C.regAfrica}"/>
           <text x="134" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">8</text>
-          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Rome: Paolo Bulgari Dies</text>
+          <text x="142" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Nigeria: Boat Tragedy</text>
 
           <circle cx="268" cy="-2.5" r="4.5" fill="${C.regOceania}"/>
           <text x="268" y="0" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6" font-weight="900" fill="#FFFFFF">9</text>
-          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Bougainville: Relief Aid</text>
+          <text x="276" y="0" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="700" fill="${C.inkNavy}">Canberra: AUKUS Defense</text>
         </g>
       </g>
     </g>
 
-    <!-- RIGHT: 8 MORE STORIES (10–17) -->
+    <!-- RIGHT: 15 MORE STORIES (10–24) IN 2 COLUMNS -->
     <g id="bottom-stories-container" transform="translate(444, 632)">
       <rect width="564" height="314" rx="5" fill="${C.cardBg}" stroke="${C.cardBorder}" stroke-width="1"/>
       
       <!-- Header -->
-      <text x="14" y="18" class="sec-title">8 MORE STORIES ACROSS 5 REGIONS (10–17)</text>
-      <text x="${564 - 14}" y="18" text-anchor="end" class="sec-sub">VERIFIED 22 NOV 2026 DISPATCHES</text>
+      <text x="14" y="18" class="sec-title">15 MORE STORIES ACROSS 6 REGIONS (10–24)</text>
+      <text x="${564 - 14}" y="18" text-anchor="end" class="sec-sub">VERIFIED FULL-DAY 22 NOV 2026 DISPATCHES</text>
       <line x1="14" y1="24" x2="${564 - 14}" y2="24" stroke="${C.divider}" stroke-width="1"/>
 
-      <!-- 8 Story Rows -->
-      <g transform="translate(14, 28)">
-        ${data.bottomStories.map((s, idx) => {
-          const rowY = idx * 35;
-          const badgeX = 104;
-          const badgeW = s.status === 'CONFIRMED' ? 58 : s.status === 'REPORTED' ? 52 : 44;
-          const srcX = badgeX + badgeW + 6;
+      <!-- Vertical Divider between Column 1 and Column 2 -->
+      <line x1="282" y1="28" x2="282" y2="306" stroke="${C.divider}" stroke-width="0.8"/>
+
+      <!-- COLUMN 1: Stories 10–17 (8 stories) -->
+      <g transform="translate(12, 28)">
+        ${data.bottomStories.slice(0, 8).map((s, idx) => {
+          const rowY = idx * 34.5;
           return `
             <g transform="translate(0, ${rowY})">
               <!-- Story Number Pill -->
-              <rect x="0" y="2" width="22" height="13" rx="2.5" fill="${s.regionColor}"/>
-              <text x="11" y="11.5" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="900" fill="#FFFFFF">${s.id}</text>
+              <rect x="0" y="2" width="20" height="12" rx="2" fill="${s.regionColor}"/>
+              <text x="10" y="11" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#FFFFFF">${s.id}</text>
               
               <!-- Region Name -->
-              <text x="26" y="12" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="800" fill="${s.regionColor}">${esc(s.region)}</text>
+              <text x="24" y="11.5" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7" font-weight="800" fill="${s.regionColor}">${esc(s.region)}</text>
               
-              <!-- Source & Status Pill -->
-              <g transform="translate(${badgeX}, 1)">
-                ${renderStatusBadge(s.status, 6)}
+              <!-- Status Badge & Source -->
+              <g transform="translate(90, 2)">
+                ${renderStatusBadge(s.status, 5.5)}
               </g>
-              <text x="${srcX}" y="11.5" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="700" fill="${C.mutedSlate}">(${esc(s.source)})</text>
+              <text x="${90 + (s.status === 'CONFIRMED' ? 44 : s.status === 'REPORTED' ? 40 : 34) + 4}" y="11" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6.8" font-weight="700" fill="${C.mutedSlate}">(${esc(s.source)})</text>
 
-              <!-- Main Story Text (>= 10px dark ink #0F172A) -->
-              <text x="0" y="27" class="bottom-story-text">
+              <!-- Main Story Text (2 lines) -->
+              <text x="0" y="21" class="bottom-col-text">
                 <tspan font-weight="800" fill="${C.inkNavy}">${esc(s.lead)}</tspan>
-                <tspan font-weight="500" fill="${C.charcoal}"> ${esc(s.body)}</tspan>
+              </text>
+              <text x="0" y="30.5" class="bottom-col-text">
+                <tspan font-weight="500" fill="${C.charcoal}">${esc(s.body)}</tspan>
               </text>
 
-              ${idx < 7 ? `<line x1="0" y1="33" x2="${564 - 28}" y2="33" stroke="${C.cardBorderSubtle}" stroke-width="0.75"/>` : ''}
+              ${idx < 7 ? `<line x1="0" y1="33" x2="258" y2="33" stroke="${C.cardBorderSubtle}" stroke-width="0.6"/>` : ''}
+            </g>
+          `;
+        }).join('')}
+      </g>
+
+      <!-- COLUMN 2: Stories 18–24 (7 stories) -->
+      <g transform="translate(294, 28)">
+        ${data.bottomStories.slice(8).map((s, idx) => {
+          const rowY = idx * 39.5;
+          return `
+            <g transform="translate(0, ${rowY})">
+              <!-- Story Number Pill -->
+              <rect x="0" y="2" width="20" height="12" rx="2" fill="${s.regionColor}"/>
+              <text x="10" y="11" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#FFFFFF">${s.id}</text>
+              
+              <!-- Region Name -->
+              <text x="24" y="11.5" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7" font-weight="800" fill="${s.regionColor}">${esc(s.region)}</text>
+              
+              <!-- Status Badge & Source -->
+              <g transform="translate(90, 2)">
+                ${renderStatusBadge(s.status, 5.5)}
+              </g>
+              <text x="${90 + (s.status === 'CONFIRMED' ? 44 : s.status === 'REPORTED' ? 40 : 34) + 4}" y="11" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="6.8" font-weight="700" fill="${C.mutedSlate}">(${esc(s.source)})</text>
+
+              <!-- Main Story Text (2 lines) -->
+              <text x="0" y="21" class="bottom-col-text">
+                <tspan font-weight="800" fill="${C.inkNavy}">${esc(s.lead)}</tspan>
+              </text>
+              <text x="0" y="31.5" class="bottom-col-text">
+                <tspan font-weight="500" fill="${C.charcoal}">${esc(s.body)}</tspan>
+              </text>
+
+              ${idx < 6 ? `<line x1="0" y1="37" x2="258" y2="37" stroke="${C.cardBorderSubtle}" stroke-width="0.6"/>` : ''}
             </g>
           `;
         }).join('')}
@@ -1020,10 +1157,10 @@ function buildSVG(data: NewsData): string {
     <!-- Box 2: DATE CHECK -->
     <g transform="translate(502, 0)">
       <rect width="490" height="58" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorder}" stroke-width="1"/>
-      <text x="12" y="16" class="sec-title" font-size="9" fill="${C.crimson}">DATE CHECK · STRICT 22 NOVEMBER 2026 UTC</text>
+      <text x="12" y="16" class="sec-title" font-size="9" fill="${C.crimson}">DATE CHECK · FULL-DAY 22 NOVEMBER 2026 UTC</text>
       
       <g transform="translate(12, 26)">
-        <text x="0" y="10" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.5" font-weight="700" fill="${C.inkNavy}">• All 17 events occurred or were first reported on 22 November 2026.</text>
+        <text x="0" y="10" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8.5" font-weight="700" fill="${C.inkNavy}">• All 24 events occurred or were first reported on 22 November 2026.</text>
         <text x="0" y="22" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="8" font-weight="500" fill="${C.charcoal}">• Prior-day Nov 20–21 spillover (Mexico cartel arrest firefight, Brazil storm) strictly excluded.</text>
       </g>
     </g>
