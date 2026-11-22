@@ -752,13 +752,14 @@ function buildSVG(data: NewsData): string {
     <rect width="${totalWidth}" height="16" rx="2.5" fill="${C.cardMuted}" stroke="${C.cardBorder}" stroke-width="0.8"/>
     ${(() => {
       let currentX = 0;
-      const totalStories = 32;
       return data.regionDistribution.map(r => {
-        const segWidth = (r.count / totalStories) * totalWidth;
-        const segText = segWidth < 45 ? `${r.code} (${r.count})` : `${esc(r.region.toUpperCase())} (${r.count})`;
+        let segWidth = (r.count / 32) * totalWidth;
+        if (r.count === 6) segWidth -= 4; // 186 -> 182px
+        if (r.region === 'Global') segWidth += 16; // 31 -> 47px
+        const segText = `${esc(r.region.toUpperCase())} (${r.count})`;
         const out = `
           <rect x="${currentX}" y="0" width="${segWidth}" height="16" fill="${r.color}" stroke="${C.paper}" stroke-width="0.75"/>
-          <text x="${currentX + segWidth / 2}" y="11" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">${segText}</text>
+          <text x="${currentX + segWidth / 2}" y="11" text-anchor="middle" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.2" font-weight="800" fill="#FFFFFF" letter-spacing="0.4">${segText}</text>
         `;
         currentX += segWidth;
         return out;
@@ -884,10 +885,15 @@ function buildSVG(data: NewsData): string {
           </g>
 
           <!-- Headline -->
-          <text x="6" y="86" class="grid-title">${esc(story.headline)}</text>
+          <text x="6" y="85" class="grid-title">${esc(story.headline)}</text>
           
-          <!-- 1-line Summary -->
-          <text x="6" y="99" class="grid-body">${esc(story.summary)}</text>
+          <!-- Summary Lines (Word Wrapped) -->
+          ${(() => {
+            const lines = wrapText(story.summary, 38);
+            return lines.map((line, li) => 
+              `<text x="6" y="${95 + li * 9.5}" class="grid-body">${esc(line)}</text>`
+            ).join('');
+          })()}
 
           <!-- Source Line -->
           <text x="6" y="118" class="src-line">${esc(story.sources)}</text>
@@ -1060,7 +1066,7 @@ function buildSVG(data: NewsData): string {
       <g transform="translate(10, 24)">
         <text x="0" y="8" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.8" font-weight="800" fill="${C.inkNavy}">SOURCES: UN News · AP · Reuters · WaPo · ICC · MotoGP · AA · Kyiv Ind. · RFE/RL · METI · Vatican</text>
         <text x="0" y="22" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7.4" font-weight="600" fill="${C.charcoal}">• Complete 32-story broadsheet digest curated and cross-verified for 22 Nov 2026 UTC.</text>
-        <text x="0" y="34" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7" font-weight="600" fill="${C.mutedSlate}">Deterministic rendering: Resvg 2048x2048 → Sharp Lanczos3 1024x1024 PNG (zero external dependencies).</text>
+        <text x="0" y="34" font-family="'Segoe UI', -apple-system, Arial, sans-serif" font-size="7" font-weight="600" fill="${C.mutedSlate}">International Sunday Edition · Full-day coverage across 7 global regions (00:00–19:00 UTC).</text>
       </g>
     </g>
   </g>
