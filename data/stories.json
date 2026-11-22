@@ -1,23 +1,32 @@
 {
   "date": "2026-11-22",
-  "displayDate": "SUNDAY · 22 NOVEMBER 2026",
-  "subtitle": "24 VERIFIED STORIES · 7 REGIONS · FULL-DAY 22 NOV 2026 UTC EDITION",
+  "displayDate": "Sunday 22 November 2026",
+  "kicker": "COP31 collapses in Antalya · Russia launches 186 drones on Ukraine · Márquez clinches 8th MotoGP title · India declare at record 720/9",
+  "subtitle": "32 DATED STORIES · 7 REGIONS · EVERY ONE DATED SUNDAY 22 NOVEMBER 2026",
   "keyNumbers": [
     { "value": "NO DEAL", "label": "COP31 Antalya talks collapse" },
+    { "value": "186", "label": "Russian drones at Ukraine (161 downed)" },
+    { "value": "720/9", "label": "India record Test total in NZ" },
+    { "value": "98.79%", "label": "Record HK Election Committee turnout" },
     { "value": "8TH", "label": "Marc Márquez MotoGP world title" },
-    { "value": "3RD", "label": "Verstappen Las Vegas F1 win in 4 yrs" },
-    { "value": "24+", "label": "Killed in Nigeria funeral boat capsize" },
-    { "value": "$31M", "label": "Libya oil pipeline blockade losses" },
-    { "value": "128", "label": "Rishabh Pant century vs NZ (Day 4)" }
+    { "value": "24+", "label": "Killed in Nigeria funeral boat capsize" }
   ],
   "regionDistribution": [
-    { "region": "Middle East", "code": "ME", "count": 5, "color": "#B91C1C" },
-    { "region": "Europe", "code": "EUR", "count": 4, "color": "#1D4ED8" },
-    { "region": "Asia", "code": "ASIA", "count": 4, "color": "#0F766E" },
-    { "region": "Americas", "code": "AMER", "count": 4, "color": "#9A3412" },
-    { "region": "Africa", "code": "AFR", "count": 3, "color": "#A16207" },
+    { "region": "Europe", "code": "EUR", "count": 6, "color": "#1D4ED8" },
+    { "region": "Middle East", "code": "ME", "count": 6, "color": "#B91C1C" },
+    { "region": "Asia", "code": "ASIA", "count": 6, "color": "#0F766E" },
+    { "region": "Americas", "code": "AMER", "count": 6, "color": "#9A3412" },
+    { "region": "Africa", "code": "AFR", "count": 4, "color": "#A16207" },
     { "region": "Oceania", "code": "OCE", "count": 3, "color": "#6D28D9" },
     { "region": "Global", "code": "GLO", "count": 1, "color": "#1E3A5F" }
+  ],
+  "timelineNodes": [
+    { "time": "01:00", "event": "Saudi missile intercept" },
+    { "time": "04:00", "event": "India 720/9" },
+    { "time": "06:00", "event": "161/186 drones" },
+    { "time": "11:00", "event": "HK poll 98.8%" },
+    { "time": "14:00", "event": "Márquez 8th" },
+    { "time": "18:00", "event": "COP31 collapses" }
   ],
   "topHeroes": [
     {
@@ -25,8 +34,8 @@
       "region": "GLOBAL",
       "regionColor": "#1E3A5F",
       "status": "CONFIRMED",
-      "headline": "COP31 COLLAPSES WITHOUT DEAL",
-      "summary": "Antalya summit ends with no overarching pact as EU, UK & others reject fossil-fuel draft.",
+      "headline": "COP31 COLLAPSES WITHOUT PACT",
+      "summary": "Antalya summit ends with no overarching pact after EU, UK & others reject fossil-fuel draft.",
       "sources": "UN News / WaPo",
       "location": "Antalya, Turkey",
       "lat": 36.9,
@@ -34,27 +43,27 @@
     },
     {
       "id": 2,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
+      "status": "OFFICIAL",
+      "headline": "186 RUSSIAN DRONES STRIKE UKRAINE",
+      "summary": "Air defenses down 161 (incl. 56 jet drones); Kyiv apartment hit as Finland fights Baltic ship blaze.",
+      "sources": "AP / WaPo",
+      "location": "Kyiv, Ukraine",
+      "lat": 50.4,
+      "lon": 30.5
+    },
+    {
+      "id": 3,
       "region": "MIDDLE EAST",
       "regionColor": "#B91C1C",
       "status": "OFFICIAL",
       "headline": "GULF MISSILE & IRAN ESCALATION",
-      "summary": "Saudi coalition downs missile over west; Bahrain seeks UN action; US-Israel plan response.",
+      "summary": "Saudi coalition downs missile over west; Bahrain seeks UN action; US & Israel plan response.",
       "sources": "AA / RFE/RL",
-      "location": "Riyadh & Gulf",
+      "location": "Western Saudi & Gulf",
       "lat": 24.7,
       "lon": 46.7
-    },
-    {
-      "id": 3,
-      "region": "EUROPE",
-      "regionColor": "#1D4ED8",
-      "status": "CONFIRMED",
-      "headline": "KYIV STRUCK; BALTIC SHIP FIRE",
-      "summary": "Kyiv apartment struck as Finland fights Russian ship blaze & Kaliningrad sounds alert.",
-      "sources": "AP",
-      "location": "Kyiv, Ukraine",
-      "lat": 50.4,
-      "lon": 30.5
     }
   ],
   "gridStories": [
@@ -63,8 +72,8 @@
       "region": "EUROPE",
       "regionColor": "#1D4ED8",
       "status": "CONFIRMED",
-      "headline": "MÁRQUEZ WINS 8TH MOTOGP TITLE",
-      "summary": "Finishes P8 at Portuguese GP to tie all-time MotoGP record as Bezzecchi wins race.",
+      "headline": "MÁRQUEZ 8TH MOTOGP TITLE",
+      "summary": "Finishes P8 in Portugal to tie record as Bezzecchi wins.",
       "sources": "MotoGP / AP",
       "location": "Portimão, Portugal",
       "lat": 37.2,
@@ -75,8 +84,8 @@
       "region": "AMERICAS",
       "regionColor": "#9A3412",
       "status": "CONFIRMED",
-      "headline": "VERSTAPPEN WINS LAS VEGAS GP",
-      "summary": "Claims third Vegas F1 victory in four years; Ferrari's Hamilton & Leclerc collide on lap 38.",
+      "headline": "VERSTAPPEN WINS VEGAS GP",
+      "summary": "Claims 3rd Las Vegas F1 win in 4 yrs; Ferrari duo collide.",
       "sources": "AP",
       "location": "Las Vegas, USA",
       "lat": 36.2,
@@ -84,188 +93,272 @@
     },
     {
       "id": 6,
-      "region": "AMERICAS",
-      "regionColor": "#9A3412",
-      "status": "OFFICIAL",
-      "headline": "US–CHINA TECH CURB CLASH",
-      "summary": "Beijing urges Washington to drop transceiver ban as US advances curb despite industry pushback.",
-      "sources": "Reuters / AA",
-      "location": "Washington DC, USA",
-      "lat": 38.9,
-      "lon": -77.0
+      "region": "ASIA/OCEANIA",
+      "regionColor": "#0F766E",
+      "status": "CONFIRMED",
+      "headline": "INDIA RECORD 720/9 IN NZ",
+      "summary": "Pant hits 128 in highest Test total in NZ; hosts 119/2.",
+      "sources": "ICC",
+      "location": "Wellington, NZ",
+      "lat": -41.3,
+      "lon": 174.8
     },
     {
       "id": 7,
       "region": "ASIA",
       "regionColor": "#0F766E",
       "status": "OFFICIAL",
-      "headline": "S. KOREA MINISTER TO RESIGN",
-      "summary": "Education minister steps down over AI cheating scandal; record auto trade deficit with China.",
+      "headline": "HK POLL 98.79% TURNOUT",
+      "summary": "Record turnout in Hong Kong Election Committee vote.",
+      "sources": "China Daily HK",
+      "location": "Hong Kong",
+      "lat": 22.3,
+      "lon": 114.2
+    },
+    {
+      "id": 8,
+      "region": "AMERICAS",
+      "regionColor": "#9A3412",
+      "status": "OFFICIAL",
+      "headline": "US–CHINA TECH CURB CLASH",
+      "summary": "Beijing urges US to drop data-center transceiver ban.",
+      "sources": "Reuters / AA",
+      "location": "Washington DC, USA",
+      "lat": 38.9,
+      "lon": -77.0
+    },
+    {
+      "id": 9,
+      "region": "ASIA",
+      "regionColor": "#0F766E",
+      "status": "OFFICIAL",
+      "headline": "S. KOREA MINISTER RESIGNS",
+      "summary": "Education chief quits over AI cheating; China auto deficit.",
       "sources": "AA",
-      "location": "Seoul, South Korea",
+      "location": "Seoul, S. Korea",
       "lat": 37.6,
       "lon": 127.0
     },
     {
-      "id": 8,
+      "id": 10,
       "region": "AFRICA",
       "regionColor": "#A16207",
       "status": "REPORTED",
-      "headline": "NIGERIA BOAT CAPSIZES: 24+ DEAD",
-      "summary": "At least 24 killed as funeral boat overturns in Nigeria; Sudan army intercepts drones over Khartoum.",
-      "sources": "TOI / AA",
+      "headline": "NIGERIA BOAT CAPSIZES: 24+",
+      "summary": "At least 24 mourners killed as funeral boat overturns.",
+      "sources": "TOI",
       "location": "Nigeria",
       "lat": 9.1,
       "lon": 7.4
     },
     {
-      "id": 9,
+      "id": 11,
       "region": "OCEANIA",
       "regionColor": "#6D28D9",
       "status": "OFFICIAL",
-      "headline": "AUSTRALIA DEFENDS AUKUS PACT",
-      "summary": "Canberra rejects US report warning submarine pact could weaken US Navy; Aus-NZ aid Bougainville.",
-      "sources": "AA / Post-Courier",
+      "headline": "AUSTRALIA DEFENDS AUKUS",
+      "summary": "Rejects US report warning sub deal weakens US Navy.",
+      "sources": "AA",
       "location": "Canberra, Australia",
       "lat": -35.3,
       "lon": 149.1
+    },
+    {
+      "id": 12,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
+      "status": "CONFIRMED",
+      "headline": "PAOLO BULGARI DIES AT 89",
+      "summary": "Italian luxury jewelry icon who built global brand dies.",
+      "sources": "AP",
+      "location": "Rome, Italy",
+      "lat": 41.9,
+      "lon": 12.5
+    },
+    {
+      "id": 13,
+      "region": "ASIA",
+      "regionColor": "#0F766E",
+      "status": "OFFICIAL",
+      "headline": "JAPAN BANS 4 CHEMICALS",
+      "summary": "METI CSCL import ban on LC-PFCAs & chlorpyrifos starts.",
+      "sources": "METI",
+      "location": "Tokyo, Japan",
+      "lat": 35.7,
+      "lon": 139.7
     }
   ],
   "bottomStories": [
     {
-      "id": 10,
+      "id": 14,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
+      "status": "OFFICIAL",
+      "lead": "Bahrain demands UNSC action",
+      "body": "& compensation for Iran strikes",
+      "source": "AA"
+    },
+    {
+      "id": 15,
+      "region": "MIDDLE EAST",
+      "regionColor": "#B91C1C",
+      "status": "CLAIM",
+      "lead": "IRGC claims US radar hits",
+      "body": "in Bahrain; Bahrain denies claim",
+      "source": "AA / Sindo"
+    },
+    {
+      "id": 16,
       "region": "MIDDLE EAST",
       "regionColor": "#B91C1C",
       "status": "REPORTED",
       "lead": "Iran plans power rationing",
-      "body": "& caps subsidized bread amid war strain.",
+      "body": "& caps subsidized bread",
       "source": "RFE/RL"
     },
     {
-      "id": 11,
+      "id": 17,
       "region": "MIDDLE EAST",
       "regionColor": "#B91C1C",
       "status": "OFFICIAL",
       "lead": "Qatar & CENTCOM",
-      "body": "hold defense talks in Doha amid Gulf alerts.",
+      "body": "hold defense talks in Doha",
       "source": "AA"
     },
     {
-      "id": 12,
+      "id": 18,
       "region": "MIDDLE EAST",
       "regionColor": "#B91C1C",
       "status": "REPORTED",
       "lead": "Israel's Eisenkot",
-      "body": "invites Likud to coalition talks before Dec 6.",
+      "body": "invites Likud to coalition talks",
       "source": "AA"
     },
     {
-      "id": 13,
-      "region": "MIDDLE EAST",
-      "regionColor": "#B91C1C",
-      "status": "REPORTED",
-      "lead": "Israeli opposition",
-      "body": "condemns suspected West Bank settler attacks.",
-      "source": "AP"
-    },
-    {
-      "id": 14,
+      "id": 19,
       "region": "EUROPE",
       "regionColor": "#1D4ED8",
       "status": "OFFICIAL",
       "lead": "Poland airspace alert:",
-      "body": "Gripen missed missile in bad weather; NATO meets Nov 23.",
+      "body": "Gripen missed missile; NATO meets Nov 23",
       "source": "Kyiv Ind."
     },
     {
-      "id": 15,
+      "id": 20,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
+      "status": "REPORTED",
+      "lead": "Kaliningrad air alert",
+      "body": "& Russian Bryansk drone kills driver",
+      "source": "WaPo / AP"
+    },
+    {
+      "id": 21,
+      "region": "EUROPE",
+      "regionColor": "#1D4ED8",
+      "status": "OFFICIAL",
+      "lead": "Pope Leo XIV",
+      "body": "leads Vatican Angelus & lunch with the poor",
+      "source": "Vatican"
+    },
+    {
+      "id": 22,
       "region": "EUROPE",
       "regionColor": "#1D4ED8",
       "status": "CONFIRMED",
-      "lead": "Paolo Bulgari dies at 89;",
-      "body": "Pope Leo XIV leads Angelus at Vatican.",
-      "source": "AP/Vatican"
+      "lead": "Timon Haugan wins",
+      "body": "Men's World Cup slalom ski race",
+      "source": "AP"
     },
     {
-      "id": 16,
-      "region": "ASIA",
-      "regionColor": "#0F766E",
-      "status": "OFFICIAL",
-      "lead": "Japan bans 4 chemical groups",
-      "body": "(LC-PFCAs, chlorpyrifos, MCCPs) under CSCL.",
-      "source": "METI"
-    },
-    {
-      "id": 17,
+      "id": 23,
       "region": "ASIA",
       "regionColor": "#0F766E",
       "status": "REPORTED",
       "lead": "India & Bangladesh",
-      "body": "convene talks on Ganges water treaty.",
+      "body": "meet on Ganges water-sharing treaty",
       "source": "TOI"
     },
     {
-      "id": 18,
+      "id": 24,
+      "region": "ASIA",
+      "regionColor": "#0F766E",
+      "status": "OFFICIAL",
+      "lead": "Pakistan forces kill 15",
+      "body": "militants in Balochistan operation",
+      "source": "Arab News"
+    },
+    {
+      "id": 25,
       "region": "ASIA",
       "regionColor": "#0F766E",
       "status": "CONFIRMED",
-      "lead": "Cricket: Pant hits 128",
-      "body": "as India reach 629/6 on Day 4 vs NZ in Wellington.",
-      "source": "The Hindu"
+      "lead": "Nepal–Japan Festival",
+      "body": "marks 70 years of diplomatic ties",
+      "source": "Nepali Times"
     },
     {
-      "id": 19,
+      "id": 26,
       "region": "AFRICA",
       "regionColor": "#A16207",
       "status": "REPORTED",
-      "lead": "Sudan army intercepts drones",
-      "body": "over Khartoum, witnesses report.",
+      "lead": "Sudanese army intercepts drones",
+      "body": "over Khartoum",
       "source": "AA"
     },
     {
-      "id": 20,
+      "id": 27,
       "region": "AFRICA",
       "regionColor": "#A16207",
       "status": "OFFICIAL",
       "lead": "Libya oil pipeline blockade",
-      "body": "costs NOC nearly $31M so far.",
+      "body": "costs NOC nearly $31M",
       "source": "AA"
     },
     {
-      "id": 21,
+      "id": 28,
+      "region": "AFRICA",
+      "regionColor": "#A16207",
+      "status": "OFFICIAL",
+      "lead": "Nigeria's Tinubu",
+      "body": "holds APC rally in Ibadan",
+      "source": "State House"
+    },
+    {
+      "id": 29,
       "region": "OCEANIA",
       "regionColor": "#6D28D9",
       "status": "OFFICIAL",
       "lead": "Australia & NZ rush aid",
-      "body": "to Bougainville as severe El Niño looms.",
+      "body": "to Bougainville ahead of El Niño",
       "source": "Post-Courier"
     },
     {
-      "id": 22,
+      "id": 30,
       "region": "OCEANIA",
       "regionColor": "#6D28D9",
       "status": "OFFICIAL",
       "lead": "Aus, NZ & US navies",
-      "body": "expand mine-warfare drills in Exercise Dugong.",
-      "source": "Eurasia Review"
+      "body": "boost mine warfare in Exercise Dugong",
+      "source": "Eurasia Rev."
     },
     {
-      "id": 23,
+      "id": 31,
       "region": "AMERICAS",
       "regionColor": "#9A3412",
       "status": "OFFICIAL",
       "lead": "US Embassy Haiti",
-      "body": "issues alert over gunfire near Tabarre.",
+      "body": "warns of gunfire near Tabarre",
       "source": "US Emb."
     },
     {
-      "id": 24,
+      "id": 32,
       "region": "AMERICAS",
       "regionColor": "#9A3412",
       "status": "REPORTED",
       "lead": "Ohio shooting kills 3+;",
-      "body": "Atlanta Delta ground delay disrupts travel.",
-      "source": "AA/Click"
+      "body": "Delta delay; Palmowski wins F1 Academy",
+      "source": "AA / AP"
     }
   ]
 }
