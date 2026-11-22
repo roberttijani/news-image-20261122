@@ -1,0 +1,18 @@
+{
+  "name": "news-image-20261122",
+  "version": "1.0.0",
+  "description": "Daily world news digest image for 22 November 2026",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "render": "tsx scripts/render.ts",
+    "start": "node main.ts"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^26.6.6",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

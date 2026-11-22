@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-22",
+  "displayDate": "22 NOVEMBER 2026",
+  "fullDateString": "SUNDAY, 22 NOVEMBER 2026",
+  "stories": [
+    {
+      "id": "climate-cop31",
+      "position": "hero",
+      "label": "CLIMATE • TURKEY",
+      "status": "CONFIRMED",
+      "headline": "COP31 NEARS FINAL DEAL",
+      "subtitle": "Antalya overtime talks announce new package",
+      "sources": "Reuters / Arab News",
+      "illustration": "summit-pavilion"
+    },
+    {
+      "id": "mideast-missile",
+      "position": "top-right",
+      "label": "MIDDLE EAST",
+      "status": "OFFICIAL",
+      "headline": "SAUDI INTERCEPTS MISSILE",
+      "subtitle": "Houthi launch blocked; Iran plans power rationing",
+      "sources": "Anadolu Agency / RFE/RL",
+      "illustration": "radar-interception"
+    },
+    {
+      "id": "tech-curb",
+      "position": "bottom-left",
+      "label": "TECH • US-CHINA",
+      "status": "REPORTED",
+      "headline": "US DATA CENTER CURB",
+      "subtitle": "Import ban advances despite Big Tech pushback",
+      "sources": "Reuters / TBS",
+      "illustration": "server-stack"
+    },
+    {
+      "id": "europe-nato",
+      "position": "bottom-center",
+      "label": "EUROPE • NATO",
+      "status": "OFFICIAL",
+      "headline": "POLAND AIRSPACE ALERT",
+      "subtitle": "NATO set to meet after missile incursion",
+      "sources": "Kyiv Independent / Reuters",
+      "illustration": "radar-scope"
+    },
+    {
+      "id": "africa-boat",
+      "position": "bottom-right",
+      "label": "AFRICA • NIGERIA",
+      "status": "REPORTED",
+      "headline": "BOAT CAPSIZES: 24 DEAD",
+      "subtitle": "Mourners killed as funeral boat capsizes",
+      "sources": "Times of India",
+      "illustration": "ocean-wave"
+    }
+  ]
+}
