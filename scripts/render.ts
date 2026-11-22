@@ -176,33 +176,48 @@ function renderIllustration1(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
     <!-- Mediterranean Mountain Ridgeline -->
-    <path d="M 0,${h - 18} L 45,${h - 48} L 95,${h - 32} L 155,${h - 58} L 225,${h - 30} L ${w},${h - 18} L ${w},${h} L 0,${h} Z" fill="#DDE4EA"/>
+    <path d="M 0,${h - 18} L 45,${h - 48} L 95,${h - 32} L 155,${h - 58} L 210,${h - 35} L ${w},${h - 20} L ${w},${h} L 0,${h} Z" fill="#DDE4EA"/>
     <polygon points="155,${h - 58} 165,${h - 46} 145,${h - 46}" fill="#FFFFFF" opacity="0.9"/>
     <!-- Coastline Water -->
     <rect x="0" y="${h - 18}" width="${w}" height="18" fill="#D2DFE6"/>
     <line x1="8" y1="${h - 10}" x2="${w - 8}" y2="${h - 10}" stroke="#9BB3BF" stroke-width="1" stroke-dasharray="8,5"/>
-    <!-- Offshore Wind Turbines -->
-    <g transform="translate(${w - 38}, ${h - 36})">
-      <line x1="0" y1="20" x2="0" y2="0" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <circle cx="0" cy="0" r="1.5" fill="${C.steelDark}"/>
-      <line x1="0" y1="0" x2="-8" y2="-6" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="0" y1="0" x2="9" y2="-3" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="0" y1="0" x2="-1" y2="9" stroke="${C.steelMid}" stroke-width="1"/>
+    
+    <!-- Stylized COP31 Climate Globe (Latitude/Longitude Lines) -->
+    <g transform="translate(242, 38)">
+      <circle cx="0" cy="0" r="25" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.6"/>
+      <line x1="-25" y1="0" x2="25" y2="0" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <line x1="0" y1="-25" x2="0" y2="25" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <ellipse cx="0" cy="-11" rx="21" ry="6" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
+      <ellipse cx="0" cy="11" rx="21" ry="6" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
+      <ellipse cx="0" cy="0" rx="13" ry="25" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <!-- Antalya Summit Crimson Beacon -->
+      <circle cx="6" cy="-8" r="3" fill="${C.crimson}"/>
+      <circle cx="6" cy="-8" r="5" fill="none" stroke="${C.crimson}" stroke-width="0.8" opacity="0.6"/>
     </g>
+
+    <!-- Offshore Wind Turbine -->
+    <g transform="translate(286, 38)">
+      <line x1="0" y1="26" x2="0" y2="0" stroke="${C.steelDark}" stroke-width="1.2"/>
+      <circle cx="0" cy="0" r="1.5" fill="${C.steelDark}"/>
+      <line x1="0" y1="0" x2="-7" y2="-6" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="0" y1="0" x2="8" y2="-3" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="0" y1="0" x2="-1" y2="8" stroke="${C.steelMid}" stroke-width="1"/>
+    </g>
+
     <!-- Modern Cantilever Pavilion Architecture -->
-    <polygon points="18,${h - 18} 180,${h - 18} 210,${h - 6} 8,${h - 6}" fill="${C.steelDark}"/>
-    <polygon points="26,${h - 62} 160,${h - 76} 175,${h - 50} 46,${h - 38}" fill="${C.steelDark}"/>
-    <polygon points="36,${h - 64} 168,${h - 78} 173,${h - 68} 44,${h - 56}" fill="${C.steelMid}"/>
+    <polygon points="14,${h - 18} 175,${h - 18} 195,${h - 6} 6,${h - 6}" fill="${C.steelDark}"/>
+    <polygon points="22,${h - 62} 155,${h - 76} 170,${h - 50} 42,${h - 38}" fill="${C.steelDark}"/>
+    <polygon points="32,${h - 64} 162,${h - 78} 168,${h - 68} 40,${h - 56}" fill="${C.steelMid}"/>
     <!-- Glass Facade & Columns -->
-    <polygon points="46,${h - 38} 175,${h - 50} 170,${h - 18} 42,${h - 18}" fill="#C8D8E2" opacity="0.85"/>
-    <line x1="72" y1="${h - 41}" x2="68" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
-    <line x1="104" y1="${h - 44}" x2="100" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
-    <line x1="136" y1="${h - 47}" x2="132" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <polygon points="42,${h - 38} 170,${h - 50} 165,${h - 18} 38,${h - 18}" fill="#C8D8E2" opacity="0.85"/>
+    <line x1="68" y1="${h - 41}" x2="64" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <line x1="100" y1="${h - 44}" x2="96" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
+    <line x1="132" y1="${h - 47}" x2="128" y2="${h - 18}" stroke="${C.steelDark}" stroke-width="2"/>
     <!-- Flags atop roof -->
-    <line x1="32" y1="${h - 62}" x2="32" y2="${h - 84}" stroke="${C.inkNavy}" stroke-width="1.5"/>
-    <polygon points="32,${h - 84} 46,${h - 79} 32,${h - 74}" fill="${C.crimson}"/>
-    <line x1="82" y1="${h - 68}" x2="82" y2="${h - 88}" stroke="${C.inkNavy}" stroke-width="1.5"/>
-    <polygon points="82,${h - 88} 96,${h - 83} 82,${h - 78}" fill="${C.steelMid}"/>
+    <line x1="28" y1="${h - 62}" x2="28" y2="${h - 84}" stroke="${C.inkNavy}" stroke-width="1.5"/>
+    <polygon points="28,${h - 84} 42,${h - 79} 28,${h - 74}" fill="${C.crimson}"/>
+    <line x1="78" y1="${h - 68}" x2="78" y2="${h - 88}" stroke="${C.inkNavy}" stroke-width="1.5"/>
+    <polygon points="78,${h - 88} 92,${h - 83} 78,${h - 78}" fill="${C.steelMid}"/>
   `;
 }
 
@@ -318,33 +333,50 @@ function renderIllustration4(w: number, h: number): string {
   `;
 }
 
-// 5. Bahrain Demands UN Action: Industrial Skyline & Neoclassical Diplomatic Motif
+// 5. Bahrain Demands UN Action: Industrial Skyline & UN Olive-Branch Council Emblem
 function renderIllustration5(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Manama Coastal Industrial Skyline -->
-    <g transform="translate(10, ${h - 28})">
-      <rect x="0" y="-28" width="14" height="28" fill="${C.steelDark}"/>
-      <line x1="7" y1="-38" x2="7" y2="-28" stroke="${C.inkNavy}" stroke-width="1.5"/>
-      <ellipse cx="24" cy="-12" rx="12" ry="14" fill="${C.steelMid}"/>
-      <rect x="12" y="-12" width="24" height="14" fill="${C.steelMid}"/>
-      <rect x="42" y="-36" width="10" height="36" fill="${C.steelDark}"/>
-      <line x1="47" y1="-46" x2="47" y2="-36" stroke="${C.inkNavy}" stroke-width="1.5"/>
-      <polygon points="45,-46 47,-52 49,-46" fill="${C.crimson}"/>
+    <!-- Manama Coastal Industrial Facility Silhouette (Bottom Left) -->
+    <g transform="translate(8, ${h - 18})">
+      <line x1="-2" y1="0" x2="48" y2="0" stroke="${C.steelDark}" stroke-width="1.5"/>
+      <ellipse cx="14" cy="-12" rx="10" ry="4" fill="${C.steelDark}"/>
+      <rect x="4" y="-12" width="20" height="12" fill="${C.steelDark}"/>
+      <rect x="27" y="-34" width="8" height="34" fill="${C.steelMid}"/>
+      <line x1="31" y1="-38" x2="31" y2="-34" stroke="${C.inkNavy}" stroke-width="1.2"/>
+      <!-- Small crimson alert wave / spark over facility -->
+      <path d="M 29,-44 Q 31,-38 35,-42 Q 33,-48 31,-46 Z" fill="${C.crimson}"/>
+      <circle cx="31" cy="-42" r="1.5" fill="${C.crimson}"/>
+      <path d="M 12,-38 Q 20,-44 28,-40" fill="none" stroke="${C.crimson}" stroke-width="1" stroke-dasharray="2,2"/>
     </g>
-    <!-- UN Diplomatic Portico & Gavel Silhouette -->
-    <g transform="translate(${w - 38}, 16)">
-      <polygon points="-16,8 16,8 0,-4" fill="${C.steelDark}"/>
-      <rect x="-14" y="8" width="28" height="2.5" fill="${C.steelDark}"/>
-      <line x1="-10" y1="10.5" x2="-10" y2="34" stroke="${C.steelDark}" stroke-width="2"/>
-      <line x1="-3" y1="10.5" x2="-3" y2="34" stroke="${C.steelDark}" stroke-width="2"/>
-      <line x1="4" y1="10.5" x2="4" y2="34" stroke="${C.steelDark}" stroke-width="2"/>
-      <line x1="11" y1="10.5" x2="11" y2="34" stroke="${C.steelDark}" stroke-width="2"/>
-      <rect x="-16" y="34" width="32" height="3" fill="${C.steelDark}"/>
-      <!-- Gavel Silhouette -->
-      <g transform="translate(2, 46) rotate(32)">
-        <rect x="-7" y="-3" width="14" height="6" rx="1" fill="${C.crimson}"/>
-        <rect x="-2" y="3" width="4" height="14" rx="0.8" fill="${C.inkNavy}"/>
+
+    <!-- Clean UN Olive-Branch / Council Emblem (Right / Upper) -->
+    <g transform="translate(64, 38)">
+      <!-- Central Globe -->
+      <circle cx="0" cy="0" r="13" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.3"/>
+      <line x1="-13" y1="0" x2="13" y2="0" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="0" y1="-13" x2="0" y2="13" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <ellipse cx="0" cy="0" rx="6.5" ry="13" fill="none" stroke="${C.steelMid}" stroke-width="0.8"/>
+
+      <!-- Twin Olive Branches Flanking the Globe -->
+      <!-- Left Branch Arc -->
+      <path d="M -16,10 C -21,2 -19,-8 -12,-15" fill="none" stroke="${C.steelDark}" stroke-width="1.4"/>
+      <!-- Left Leaves -->
+      <path d="M -17,5 C -22,4 -23,-1 -19,1 Z" fill="${C.steelMid}"/>
+      <path d="M -19,-4 C -24,-5 -24,-10 -20,-8 Z" fill="${C.steelMid}"/>
+      <path d="M -15,-12 C -19,-15 -17,-19 -13,-16 Z" fill="${C.steelMid}"/>
+
+      <!-- Right Branch Arc -->
+      <path d="M 16,10 C 21,2 19,-8 12,-15" fill="none" stroke="${C.steelDark}" stroke-width="1.4"/>
+      <!-- Right Leaves -->
+      <path d="M 17,5 C 22,4 23,-1 19,1 Z" fill="${C.steelMid}"/>
+      <path d="M 19,-4 C 24,-5 24,-10 20,-8 Z" fill="${C.steelMid}"/>
+      <path d="M 15,-12 C 19,-15 17,-19 13,-16 Z" fill="${C.steelMid}"/>
+
+      <!-- UN Gavel Silhouette at Base -->
+      <g transform="translate(0, 22) rotate(22)">
+        <rect x="-6" y="-2.5" width="12" height="5" rx="1" fill="${C.crimson}"/>
+        <rect x="-1.5" y="2.5" width="3" height="10" rx="0.8" fill="${C.steelDark}"/>
       </g>
     </g>
   `;
@@ -415,62 +447,106 @@ function renderIllustration7(w: number, h: number): string {
   `;
 }
 
-// 8. Paolo Bulgari Dies at 89: Classical Roman Facade & Octagonal Gem Facet
+// 8. Paolo Bulgari Dies at 89: Faceted Gemstone & Minimalist Roman Column
 function renderIllustration8(w: number, h: number): string {
-  const cx = w / 2;
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Classical Roman Architectural Temple Facade -->
-    <g transform="translate(18, 16)">
-      <polygon points="0,14 44,14 22,0" fill="${C.steelDark}"/>
-      <rect x="2" y="14" width="40" height="3" fill="${C.steelDark}"/>
-      <line x1="6" y1="17" x2="6" y2="52" stroke="${C.steelDark}" stroke-width="2.5"/>
-      <line x1="17" y1="17" x2="17" y2="52" stroke="${C.steelDark}" stroke-width="2.5"/>
-      <line x1="27" y1="17" x2="27" y2="52" stroke="${C.steelDark}" stroke-width="2.5"/>
-      <line x1="38" y1="17" x2="38" y2="52" stroke="${C.steelDark}" stroke-width="2.5"/>
-      <rect x="0" y="52" width="44" height="4" fill="${C.steelDark}"/>
+    <!-- Minimalist Classical Roman Column (Left) -->
+    <g transform="translate(10, 18)">
+      <rect x="2" y="2" width="24" height="3" rx="0.8" fill="${C.steelDark}"/>
+      <path d="M 2,6 C 0,4 2,2 5,4.5 L 23,4.5 C 26,2 28,4 26,6" fill="none" stroke="${C.steelDark}" stroke-width="1.5"/>
+      <rect x="4" y="7" width="20" height="2" fill="${C.steelMid}"/>
+      
+      <rect x="5" y="9" width="18" height="54" fill="#E2EBF0" stroke="${C.steelDark}" stroke-width="1.3"/>
+      <line x1="9" y1="10" x2="9" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="14" y1="10" x2="14" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
+      <line x1="19" y1="10" x2="19" y2="62" stroke="${C.steelMid}" stroke-width="1"/>
+
+      <rect x="3" y="63" width="22" height="3.5" rx="0.6" fill="${C.steelMid}"/>
+      <rect x="0" y="66.5" width="28" height="4.5" rx="1" fill="${C.steelDark}"/>
     </g>
-    <!-- Octagonal Step-cut Emerald / Gemstone Silhouette -->
-    <g transform="translate(${cx + 14}, 22)">
-      <polygon points="8,0 24,0 32,8 32,24 24,32 8,32 0,24 0,8" fill="#DDE5EB" stroke="${C.inkNavy}" stroke-width="1.8"/>
-      <polygon points="12,5 20,5 25,10 25,22 20,27 12,27 7,22 7,10" fill="none" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="8" y1="0" x2="12" y2="5" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="24" y1="0" x2="20" y2="5" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="32" y1="8" x2="25" y2="10" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="32" y1="24" x2="25" y2="22" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="24" y1="32" x2="20" y2="27" stroke="${C.steelMid}" stroke-width="1"/>
-      <line x1="8" y1="32" x2="12" y2="27" stroke="${C.steelMid}" stroke-width="1"/>
-      <circle cx="16" cy="16" r="3" fill="${C.crimson}"/>
+
+    <!-- Crisp Faceted Brilliant-Cut Diamond / Gemstone (Right) -->
+    <g transform="translate(58, 48)">
+      <!-- Crown / Table Top -->
+      <polygon points="-14,-14 14,-14 22,-2 -22,-2" fill="#EDF3F7" stroke="${C.steelDark}" stroke-width="1.5"/>
+      <polygon points="-9,-14 9,-14 13,-8 -13,-8" fill="#FFFFFF" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="-14" y1="-14" x2="-13" y2="-8" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="14" y1="-14" x2="13" y2="-8" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="-13" y1="-8" x2="-22" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="13" y1="-8" x2="22" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="0" y1="-14" x2="0" y2="-2" stroke="${C.steelMid}" stroke-width="0.8"/>
+
+      <!-- Girdle Separator -->
+      <line x1="-22" y1="-2" x2="22" y2="-2" stroke="${C.steelDark}" stroke-width="1.6"/>
+
+      <!-- Lower Pavilion Cone -->
+      <polygon points="-22,-2 22,-2 0,28" fill="#D2E2EA" stroke="${C.steelDark}" stroke-width="1.5"/>
+      <line x1="0" y1="28" x2="-11" y2="-2" stroke="${C.steelMid}" stroke-width="0.9"/>
+      <line x1="0" y1="28" x2="11" y2="-2" stroke="${C.steelMid}" stroke-width="0.9"/>
+      <polygon points="-11,-2 11,-2 0,15" fill="#C2D8E3" stroke="${C.steelMid}" stroke-width="0.8"/>
+
+      <!-- Crimson Sparkle Glint -->
+      <circle cx="17" cy="-18" r="2.5" fill="${C.crimson}"/>
+      <line x1="17" y1="-23" x2="17" y2="-13" stroke="${C.crimson}" stroke-width="1"/>
+      <line x1="12" y1="-18" x2="22" y2="-18" stroke="${C.crimson}" stroke-width="1"/>
     </g>
   `;
 }
 
-// 9. Bougainville Relief Aid: Pacific Coastline & Humanitarian Cargo Airlift
+// 9. Bougainville / Pacific Relief Aid: Coastline, Helicopter & Parachute Aid Crate
 function renderIllustration9(w: number, h: number): string {
   return `
     <rect width="${w}" height="${h}" rx="4" fill="${C.cardMuted}" stroke="${C.cardBorderSubtle}" stroke-width="1"/>
-    <!-- Tropical Island Volcanic Ridge & Palms -->
-    <path d="M 0,${h - 16} L 32,${h - 42} L 68,${h - 26} L 110,${h - 52} L 155,${h - 20} L ${w},${h - 16} L ${w},${h} L 0,${h} Z" fill="#D2DDD8"/>
-    <rect x="0" y="${h - 16}" width="${w}" height="16" fill="#C5D8D4"/>
-    <!-- Palm Silhouette -->
-    <g transform="translate(24, ${h - 16})">
-      <path d="M 0,0 Q -4,-18 -10,-24" fill="none" stroke="${C.steelDark}" stroke-width="2"/>
-      <line x1="-10" y1="-24" x2="-20" y2="-28" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <line x1="-10" y1="-24" x2="-14" y2="-34" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <line x1="-10" y1="-24" x2="-2" y2="-32" stroke="${C.steelDark}" stroke-width="1.2"/>
-      <line x1="-10" y1="-24" x2="-3" y2="-22" stroke="${C.steelDark}" stroke-width="1.2"/>
+    <!-- Tropical Island Shoreline & Palm (Bottom) -->
+    <path d="M 0,92 Q 25,86 55,94 T ${w},88 L ${w},108 L 0,108 Z" fill="#D2DDD8"/>
+    <g transform="translate(18, 92)">
+      <path d="M 0,0 Q -3,-14 -8,-20" fill="none" stroke="${C.steelDark}" stroke-width="1.8"/>
+      <path d="M -8,-20 Q -16,-23 -20,-20" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <path d="M -8,-20 Q -10,-28 -5,-30" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
+      <path d="M -8,-20 Q 0,-27 4,-26" fill="none" stroke="${C.steelMid}" stroke-width="1.2"/>
     </g>
-    <!-- Humanitarian Cargo Airlift Aircraft (C-130 Silhouette) -->
-    <g transform="translate(${w - 38}, 22)">
-      <path d="M -24,0 L 16,0 L 22,-3 L 20,4 L 14,4 L -20,3 Z" fill="${C.inkNavy}"/>
-      <polygon points="-6,-16 0,-16 2,16 -4,16" fill="${C.steelDark}"/>
-      <polygon points="12,-8 18,-8 14,0 10,0" fill="${C.inkNavy}"/>
-      <g transform="translate(-14, 20)">
-        <path d="M -10,0 A 10 10 0 0 1 10,0 Z" fill="${C.crimson}"/>
-        <line x1="-10" y1="0" x2="0" y2="10" stroke="${C.steelDark}" stroke-width="0.8"/>
-        <line x1="10" y1="0" x2="0" y2="10" stroke="${C.steelDark}" stroke-width="0.8"/>
-        <rect x="-3" y="10" width="6" height="6" fill="${C.steelDark}"/>
-      </g>
+
+    <!-- Rescue Helicopter (Top - generous clearance, rotor at y=14) -->
+    <g transform="translate(50, 26)">
+      <!-- Main Rotor Blade & Spinning Disc -->
+      <ellipse cx="0" cy="-10" rx="26" ry="3" fill="none" stroke="${C.steelMid}" stroke-width="0.8" stroke-dasharray="3,2"/>
+      <line x1="-24" y1="-10" x2="24" y2="-10" stroke="${C.steelDark}" stroke-width="1.8"/>
+      <line x1="0" y1="-10" x2="0" y2="-5" stroke="${C.steelDark}" stroke-width="2"/>
+      
+      <!-- Sculpted Aerodynamic Fuselage -->
+      <path d="M -16,3 L -18,0 L -12,-5 L 4,-5 L 14,-1 L 14,3 L -12,4 Z" fill="#DDE7EC" stroke="${C.steelDark}" stroke-width="1.4"/>
+      <!-- Cockpit Windscreen -->
+      <polygon points="-16,0 -12,-4 -7,-4 -9,0" fill="${C.steelDark}"/>
+      <!-- Windows -->
+      <rect x="-4" y="-3" width="5" height="4.5" rx="0.8" fill="${C.steelDark}"/>
+      <rect x="3" y="-3" width="5" height="4.5" rx="0.8" fill="${C.steelDark}"/>
+
+      <!-- Tail Boom & Stabilizer Fin -->
+      <line x1="14" y1="0" x2="30" y2="-2" stroke="${C.steelDark}" stroke-width="2"/>
+      <polygon points="27,-2 31,-9 29,-2" fill="${C.crimson}"/>
+      <line x1="31" y1="-10" x2="31" y2="-2" stroke="${C.steelMid}" stroke-width="1.2"/>
+
+      <!-- Landing Skids -->
+      <line x1="-12" y1="7" x2="10" y2="7" stroke="${C.steelDark}" stroke-width="1.4"/>
+      <line x1="-8" y1="3" x2="-10" y2="7" stroke="${C.steelDark}" stroke-width="1.2"/>
+      <line x1="6" y1="3" x2="4" y2="7" stroke="${C.steelDark}" stroke-width="1.2"/>
+    </g>
+
+    <!-- Airdropped Relief Supply Crate with Parachute (Middle, y=46 to 78) -->
+    <g transform="translate(50, 52)">
+      <!-- Crimson Parachute Canopy -->
+      <path d="M -13,0 A 13 13 0 0 1 13,0 Z" fill="${C.crimson}"/>
+      <path d="M -6,0 A 6 13 0 0 1 6,0" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
+      <!-- Suspension Cords -->
+      <line x1="-13" y1="0" x2="-3" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="13" y1="0" x2="3" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="${C.steelMid}" stroke-width="0.8"/>
+      <!-- Aid Box Crate -->
+      <rect x="-7" y="12" width="14" height="12" rx="1.5" fill="#F4F8FA" stroke="${C.steelDark}" stroke-width="1.3"/>
+      <!-- Crimson Relief Cross -->
+      <rect x="-1.5" y="14" width="3" height="8" fill="${C.crimson}"/>
+      <rect x="-4" y="16.5" width="8" height="3" fill="${C.crimson}"/>
     </g>
   `;
 }
